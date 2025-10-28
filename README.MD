@@ -1,4 +1,4 @@
-## pxCode HTML Project//
+## pxCode HTML Project
 
 ### 1. Prerequisite 
 
