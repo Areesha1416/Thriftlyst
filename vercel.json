@@ -7,7 +7,7 @@
     { "source": "/pricing", "destination": "/pricing.html" },
     { "source": "/directory", "destination": "/directory.html" },
     { "source": "/directoryData", "destination": "/directorydata.html" },
-    { "source": "/", "destination": "/directorydata.html" },
+    { "source": "/", "destination": "/directory.html" },
     { "source": "/stores/:path*", "destination": "/directorydata.html" },
     { "source": "/store/:path*", "destination": "/indivisualdir.html" }
   ]
