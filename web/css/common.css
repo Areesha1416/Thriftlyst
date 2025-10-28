@@ -1,0 +1,863 @@
+/* Hero Section */
+.hero-section {
+  position: relative;
+  padding: 120px 20px;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fdfdfd, #f7f7f7);
+}
+
+/* Floating Icons Background */
+.hero-section::before,
+.hero-section::after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  font-size: 110px;
+  color: rgba(0, 0, 0, 0.07);
+  animation: float 5s ease-in-out infinite;
+  z-index: 0;
+}
+.hero-section::before {
+  content: "\f07a";
+  top: 15%;
+  left: 40px;
+}
+.hero-section::after {
+  content: "\f290";
+  bottom: 12%;
+  right: 40px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Hero Text */
+.hero-heading {
+  font-family: "Instrument Serif", serif;
+  font-size: 62px !important;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  z-index: 1;
+  position: relative;
+}
+
+.hero-heading em {
+  /* font-style: italic; */
+  font-style: normal; /* italic emphasis */
+  font-weight: 600;
+}
+
+.hero-heading em:first-of-type {
+  color: #d32f2f; /* primary red */
+}
+
+.hero-heading em:last-of-type {
+  color: #0489b0; /* secondary teal */
+}
+
+.hero-subtext {
+  font-family: "GT-Pressura-Regular", sans-serif;
+  font-size: 22px !important;
+  color: #555;
+  margin-bottom: 35px;
+  z-index: 1;
+  position: relative;
+  /* font-style: italic; */
+  font-style: normal; /* subtle italic touch */
+}
+
+/* Buttons */
+.hero-buttons .btn-cta {
+  padding: 14px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .hero-heading {
+    font-size: 3.5rem;
+  }
+  .hero-subtext {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1200px) {
+  .hero-heading {
+    font-size: 4rem;
+  }
+}
+/* Mobile spacing adjustment */
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 70px 15px; /* reduce top/bottom space */
+  }
+
+  .hero-heading {
+    font-size: 2rem;
+  }
+
+  .hero-subtext {
+    font-size: 1rem;
+  }
+
+  .hero-buttons .btn-cta {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Section Base */
+.operating-system-section {
+  padding: 20px 20px;
+  position: sticky;
+  top: 0; /* 👈 sticky hone ke liye zaruri */
+  z-index: 10; /* optional: overlap fix */
+  background: #fff; /* optional: agar neeche ka content visible ho raha ho */
+}
+
+/* Nav Bullets */
+.os-nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 0px;
+}
+
+.os-item {
+  font-family: "instrument serif", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.os-bullet {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #0489b0; /* secondary color border */
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.os-bullet::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #0489b0; /* secondary color dot */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.3s ease;
+}
+
+.os-item.active .os-bullet::after,
+.os-item:hover .os-bullet::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.os-item:hover {
+  color: #0489b0; /* hover secondary */
+}
+
+/* Media */
+.os-media {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Corner Images */
+.os-img {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+  filter: blur(1px) brightness(0.8);
+}
+
+.os-top-left {
+  top: 0;
+  left: 0;
+}
+.os-top-right {
+  top: 0;
+  right: 0;
+}
+.os-bottom-left {
+  bottom: 0;
+  left: 0;
+}
+.os-bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+/* Center Video */
+.os-video {
+  position: absolute;
+  width: 70%;
+  height: auto;
+  z-index: 5;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  /* Hide corner images on mobile */
+  .os-img {
+    display: none;
+  }
+
+  .os-video {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+
+  .os-media {
+    height: auto;
+  }
+}
+
+/* Swag Section */
+.swag-section {
+  background: #fff;
+  font-family: "Instrument Serif", serif;
+}
+
+/* Main Heading */
+.swag-section h2 {
+  font-size: 2.8rem !important; /* relative instead of fixed px */
+  font-weight: 500;
+  color: #222;
+  line-height: 1.2;
+  font-family: "Instrument Serif", serif;
+}
+
+.swag-section em {
+  /* font-style: italic; */
+  font-style: normal;
+  color: #0489b0; /* secondary highlight */
+}
+
+.sub-text {
+  font-size: large !important;
+}
+
+/* Image */
+.swag-image img {
+  max-height: 700px;
+  object-fit: cover;
+  border-bottom: 3px solid #0489b0;
+}
+
+/* Subheadings inside columns */
+.swag-section h4,
+.swag-section h5 {
+  font-family: "Instrument Serif", serif;
+  font-weight: 500;
+  color: #222;
+  font-size: 1.4rem; /* balanced size */
+}
+
+/* Paragraphs */
+.swag-section p {
+  font-family: "Instrument Serif", serif;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* List with custom elegant ticks */
+.swag-section ul {
+  padding-left: 0;
+  list-style: none; /* remove browser default ticks */
+}
+.swag-section ul li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+  font-family: "Instrument Serif", serif;
+  font-size: 1rem;
+}
+.swag-section ul li::before {
+  content: "✔"; /* only blue tick */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #0489b0; /* secondary accent */
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Separator for desktop */
+.swag-section .row > div {
+  position: relative;
+  padding: 0 20px;
+}
+.swag-section .row > div:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 1px;
+  height: 80%;
+  background: #e0e0e0;
+}
+
+/* Tablet adjustments */
+@media (max-width: 991px) {
+  .swag-section h2 {
+    font-size: 2rem; /* smaller heading for tablets */
+  }
+  .swag-section h4,
+  .swag-section h5 {
+    font-size: 1.2rem;
+  }
+
+  /* remove vertical separators */
+  .swag-section .row > div::after {
+    display: none;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+  .swag-section h2 {
+    font-size: 1.8rem; /* compact heading for mobile */
+  }
+  .swag-section p,
+  .swag-section ul li {
+    font-size: 0.95rem;
+  }
+
+  /* horizontal separators on mobile */
+  .swag-section .row > div {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .swag-section .row > div:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+/* Module Section Wrapper (as a big card) */
+.module-section {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #fefefe 30%,
+    rgba(211, 47, 47, 0.08) 65%,
+    /* soft primary tint */ rgba(4, 137, 176, 0.08) 100%
+      /* soft secondary tint */
+  );
+  font-family: "Instrument Serif", serif;
+  padding: 50px 0px;
+}
+
+.module-section .container {
+  border-radius: 1.5rem;
+  box-shadow: 2px 2px 2px 1px #0489b0; /* right + bottom shadow in secondary color */
+  padding: 3rem 2rem;
+  margin: auto auto;
+}
+
+/* Main Heading */
+.module-section h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1.5rem;
+}
+.module-section em {
+  color: #0489b0;
+}
+/* Main Heading */
+.module-section h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+}
+/* Paragraphs */
+.module-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* CTA Button */
+.module-section .btn-cta {
+  border: 2px solid #0489b0 !important;
+  background: transparent !important;
+  color: #0489b0 !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.45rem 1.1rem; /* compact size */
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  align-self: flex-start; /* keeps button natural width */
+}
+.module-section .btn-cta:hover {
+  background-color: #0489b0 !important;
+  color: #fff !important;
+}
+
+/* Image */
+.module-section img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 1rem;
+  border: 2px solid #e6f2f7;
+  box-shadow: 0 6px 18px rgba(4, 137, 176, 0.1);
+}
+
+/* Small Module Cards */
+.module-card {
+  background: transparent;
+  border: 1px solid #0489b0;
+  border-radius: 1rem;
+  padding: 2rem;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.module-card h5 {
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.8rem;
+}
+.module-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(4, 137, 176, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .module-section {
+    padding: 2rem 1.5rem;
+  }
+  .module-section h3 {
+    font-size: 2rem;
+  }
+  .module-card {
+    padding: 1.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .module-section h3 {
+    font-size: 1.7rem;
+  }
+  .module-section p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Module Section Wrapper (Red Accent) */
+.module-section-red {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #fefefe 30%,
+    rgba(4, 137, 176, 0.08) 65%,
+    /* soft secondary tint */ rgba(211, 47, 47, 0.08) 100%
+      /* soft primary tint */
+  );
+  font-family: "Instrument Serif", serif;
+  padding: 50px 0px;
+}
+
+.module-section-red .container {
+  border-radius: 1.5rem;
+  box-shadow: 2px 2px 2px 1px #d32f2f; /* right + bottom shadow in primary color */
+  padding: 3rem 2rem;
+  margin: auto auto;
+}
+
+/* Main Heading */
+.module-section-red h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1.5rem;
+}
+.module-section-red em {
+  color: #d32f2f;
+}
+.module-section-red h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+}
+/* Paragraphs */
+.module-section-red p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* CTA Button */
+.module-section-red .btn-cta {
+  border: 2px solid #d32f2f !important;
+  background: transparent !important;
+  color: #d32f2f !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+.module-section-red .btn-cta:hover {
+  background-color: #d32f2f !important;
+  color: #fff !important;
+}
+
+/* Image */
+.module-section-red img {
+  object-fit: cover;
+  width: 100%;
+  border-radius: 1rem;
+  border: 2px solid #fbe9e9;
+  box-shadow: 0 6px 18px rgba(211, 47, 47, 0.1);
+}
+
+/* Small Module Cards */
+.module-card-red {
+  background: transparent;
+  border: 1px solid #d32f2f;
+  border-radius: 1rem;
+  padding: 2rem;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.module-card-red h5 {
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.8rem;
+}
+.module-card-red:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(211, 47, 47, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .module-section-red {
+    padding: 2rem 1.5rem;
+  }
+  .module-section-red h3 {
+    font-size: 2rem;
+  }
+  .module-card-red {
+    padding: 1.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .module-section-red h3 {
+    font-size: 1.7rem;
+  }
+  .module-section-red p {
+    font-size: 0.95rem;
+  }
+}
+/* Hide element on desktop (≥768px) */
+.d-md-none {
+  display: block; /* default for mobile */
+}
+
+@media (min-width: 768px) {
+  .d-md-none {
+    display: none;
+  }
+}
+
+/* Hide element on mobile (<768px) */
+.d-md-block {
+  display: none; /* default for mobile */
+}
+
+@media (min-width: 768px) {
+  .d-md-block {
+    display: block; /* show on desktop */
+  }
+}
+
+/* Section Layout */
+.strip-banner {
+  position: relative;
+  overflow: hidden;
+  min-height: 60vh;
+  background: #fff;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Seamless Left-to-Right Motion Rays */
+.speed-rays {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.speed-rays::before,
+.speed-rays::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(220, 53, 69, 0.35) 25%,
+    rgba(220, 53, 69, 0.45) 50%,
+    rgba(220, 53, 69, 0.35) 75%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+  background-size: 200% 100%;
+  animation: slideRays 8s linear infinite;
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  filter: blur(2px);
+}
+
+.speed-rays::after {
+  left: 100%;
+}
+
+/* Moves continuously L → R */
+@keyframes slideRays {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Liquid blob */
+.liquid-blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at 30% 30%, #d32f2f, #0489b0);
+  border-radius: 60% 40% 30% 70% / 60% 40% 70% 40%;
+  transform: translate(-50%, -50%);
+  animation: morph 5s infinite ease-in-out;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 40% 70% 40%;
+  }
+  50% {
+    border-radius: 40% 60% 70% 30% / 50% 70% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 40% 70% 40%;
+  }
+}
+
+/* Content Center */
+.content {
+  position: relative;
+  z-index: 5;
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Headline animation */
+.headline {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* Each word acts as a group */
+.word {
+  display: inline-block;
+  margin: 0 0.5rem;
+  white-space: nowrap;
+}
+.word .red {
+  color: #d32f2f !important;
+}
+.word span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%) scale(0.95);
+  animation: textRise 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.word span:nth-child(n) {
+  animation-delay: calc(var(--i, 0) * 0.05s);
+}
+
+@keyframes textRise {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Button animation */
+.learn-btn {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: btnAppear 1.2s ease forwards 2.3s;
+  box-shadow: 0 4px 20px rgba(220, 53, 69, 0.4);
+  transition: transform 0.3s ease;
+}
+.learn-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(220, 53, 69, 0.5);
+}
+
+@keyframes btnAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive: stack words */
+@media (max-width: 768px) {
+  .headline {
+    font-size: 3rem;
+    line-height: 1.3;
+  }
+  .word {
+    display: block;
+    margin: 0.3rem 0;
+  }
+  .strip-banner {
+    min-height: 85vh;
+  }
+}
+
+/* Book a Demo Section */
+.book-demo-section {
+  background: #fff; /* primary color background */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+
+.book-demo-section .container {
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.book-demo-section h1 {
+  font-family: "Instrument Serif", serif;
+  font-size: 3rem !important;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+
+.book-demo-section h1 em {
+  color: #d32f2f; /* subtle secondary accent */
+  /* font-style: italic; */
+  font-style: normal;
+}
+
+/* Button */
+.book-demo-section .btn-cta {
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.6rem 2rem;
+  transition: all 0.3s ease;
+}
+.book-demo-section .btn-cta:hover {
+  background: #fdecec; /* secondary soft tint on hover */
+  color: #0489b0;
+  border-color: #fdecec;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .book-demo-section h1 {
+    font-size: 2.2rem;
+  }
+  .book-demo-section .btn-cta {
+    font-size: 0.95rem;
+    padding: 0.55rem 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-demo-section {
+    padding: 3rem 1rem;
+  }
+  .book-demo-section h1 {
+    font-size: 2rem;
+  }
+  .book-demo-section .btn-cta {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.6rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .book-demo-section {
+    padding: 2.5rem 0.8rem;
+  }
+  .book-demo-section h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+  .book-demo-section .btn-cta {
+    font-size: 0.85rem;
+    padding: 0.45rem 1.4rem;
+  }
+}

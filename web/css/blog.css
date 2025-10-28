@@ -1,0 +1,210 @@
+/* -------------------------------
+   Hero Section (Responsive + Blobs)
+---------------------------------- */
+.hero-section {
+  background: #f9f9f9;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.hero-heading {
+  font-family: "Instrument Serif", serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 20px;
+}
+.hero-heading em {
+  color: #d32f2f; /* primary red */
+  /* font-style: italic; */
+  font-style: normal;
+}
+.hero-subtext {
+  font-family: "GT-Pressura-Regular", sans-serif;
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Responsive typography */
+@media (min-width: 768px) {
+  .hero-heading {
+    font-size: 4rem;
+  }
+  .hero-subtext {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1200px) {
+  .hero-heading {
+    font-size: 5rem;
+  }
+}
+
+/* Animated Blobs */
+.blob {
+  position: absolute;
+  border-radius: 60% 40% 30% 70% / 60% 40% 70% 40%;
+  opacity: 0.15;
+  animation: morph 12s infinite ease-in-out;
+  z-index: 0;
+}
+.blob-1 {
+  width: 320px;
+  height: 320px;
+  background: #d32f2f;
+  top: -100px;
+  left: -120px;
+}
+.blob-2 {
+  width: 260px;
+  height: 260px;
+  background: #0489b0;
+  bottom: -120px;
+  right: -100px;
+  animation-delay: 4s;
+}
+.blob-3 {
+  width: 200px;
+  height: 150px;
+  background: #f9b4b4;
+  top: 40%;
+  left: 60%;
+  animation-delay: 6s;
+}
+.blob-4 {
+  width: 160px;
+  height: 160px;
+  background: #9dcbd3;
+  top: 50%;
+  left: 25%;
+  animation-delay: 8s;
+}
+@keyframes morph {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  33% {
+    transform: scale(1.15) translate(30px, -20px) rotate(15deg);
+  }
+  66% {
+    transform: scale(0.9) translate(-25px, 25px) rotate(-15deg);
+  }
+}
+.blogs {
+  background: linear-gradient(135deg, #fff5f5 0%, #f5fdfd 100%);
+}
+/* -------------------------------
+   Theme Card (Sidebar base)
+---------------------------------- */
+.theme-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease;
+}
+.theme-card h5 {
+  font-family: "Instrument Serif", serif;
+}
+.theme-card:hover {
+  transform: translateY(-4px);
+}
+
+/* -------------------------------
+   Blog Cards (Grid)
+---------------------------------- */
+.blog-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  position: relative;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.blog-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+.blog-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.blog-card-body {
+  padding: 20px;
+}
+.blog-card-body h5 {
+  font-family: "Instrument Serif", serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.blog-card-body h5 em {
+  color: #0489b0; /* secondary teal */
+}
+.blog-card-body p {
+  font-family: "GT-Pressura-Regular", sans-serif;
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Fade-up animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -------------------------------
+   Recent Blogs (Sidebar)
+---------------------------------- */
+.recent-posts {
+  border-top: 2px solid #f0f0f0;
+  padding-top: 10px;
+}
+.recent-posts a {
+  display: block;
+  font-family: "GT-Pressura-Regular", sans-serif;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  background: #fafafa;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.25s ease;
+}
+.recent-posts a:hover {
+  background: #f3f9fb;
+  color: #0489b0;
+  padding-left: 16px;
+}
+
+/* Newsletter form inside theme-card */
+#newsletter-form input {
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border: 1px solid #ddd;
+  transition: border 0.3s ease;
+}
+
+#newsletter-form input:focus {
+  border-color: #0489b0;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(4, 137, 176, 0.1);
+}

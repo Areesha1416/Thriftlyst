@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThriftOps Directory - National Thrift Store Directory</title>
+    <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/directory.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="header"></div>
+    <script src="load-header.js"></script>
+
+    <div class="container main mt-5">
+      <div class="row">
+        <!-- Left Side (col-md-7) -->
+        <div class="col-md-7 d-flex align-items-center p-4">
+          <div>
+            <h2 class="TODir_heading">
+              <em>Thriftops Directory</em><br />
+              Your Gateway to find thrifstores near you
+            </h2>
+
+            <!-- Search Bar -->
+            <div class="tod-search container mt-3" style="max-width: 100%">
+              <!-- Row 1: What Input -->
+              <div class="row mb-2">
+                <div class="col-12">
+                  <div class="tod-what-wrapper position-relative">
+                    <div class="input-group">
+                      <span class="input-group-text"
+                        ><i class="fa fa-search"></i
+                      ></span>
+                      <input
+                        type="text"
+                        id="dirSelect"
+                        class="form-control"
+                        placeholder="What"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <ul
+                      id="whatDropdown"
+                      class="list-group position-absolute w-100"
+                      style="top: 48px; z-index: 1000; display: none"
+                    >
+                      <li class="list-group-item">
+                        <i class="fa-solid fa-store me-2"></i> Thrift Store
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fa-solid fa-gem me-2"></i> Luxury Resale
+                        Boutique
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fa fa-handshake-o me-2"></i> Consignment Store
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fa fa-industry me-2"></i> Rag House (Bulk Used
+                        Clothing)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Row 2: State + City + Search -->
+              <div class="row g-2">
+                <!-- State -->
+                <div class="col-md-5">
+                  <div class="tod-state-wrapper position-relative">
+                    <div class="input-group">
+                      <span class="input-group-text"
+                        ><i class="fa-solid fa-flag-usa"></i
+                      ></span>
+                      <input
+                        type="text"
+                        id="stateInput"
+                        class="form-control"
+                        placeholder="State"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <ul
+                      id="stateDropdown"
+                      class="list-group position-absolute w-100"
+                      style="top: 48px; z-index: 1000; display: none"
+                    ></ul>
+                  </div>
+                </div>
+
+                <!-- City -->
+                <div class="col-md-5">
+                  <div class="tod-city-wrapper position-relative">
+                    <div class="input-group">
+                      <span class="input-group-text"
+                        ><i class="fa-solid fa-city"></i
+                      ></span>
+                      <input
+                        type="text"
+                        id="cityInput"
+                        class="form-control"
+                        placeholder="City"
+                        autocomplete="off"
+                        disabled
+                      />
+                    </div>
+                    <ul
+                      id="cityDropdown"
+                      class="list-group position-absolute w-100"
+                      style="top: 48px; z-index: 1000; display: none"
+                    ></ul>
+                  </div>
+                </div>
+
+                <!-- Search Button -->
+                <div class="col-md-2 d-grid">
+                  <button class="btn btn-search btn-cta">Search</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="tod-icons d-flex gap-5 mt-4">
+              <a href="#" class="tod-icon-link" title="Thrift Store">
+                <div class="tod-icon-circle">
+                  <i class="fa-solid fa-store"></i>
+                </div>
+              </a>
+
+              <a href="#" class="tod-icon-link" title="Second-Hand Clothing">
+                <div class="tod-icon-circle">
+                  <i class="fa fa-shopping-bag"></i>
+                </div>
+              </a>
+              <a href="#" class="tod-icon-link" title="Luxury Resale Boutique">
+                <div class="tod-icon-circle">
+                  <i class="fa-solid fa-gem"></i>
+                </div>
+              </a>
+              <a href="#" class="tod-icon-link" title="Consignment Store">
+                <div class="tod-icon-circle">
+                  <i class="fa fa-handshake-o"></i>
+                </div>
+              </a>
+              <a href="#" class="tod-icon-link" title="Rag House">
+                <div class="tod-icon-circle">
+                  <i class="fa fa-industry"></i>
+                </div>
+              </a>
+            </div>
+
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                const catLinks = document.querySelectorAll(".tod-icons a");
+
+                catLinks.forEach((link) => {
+                  link.addEventListener("click", (e) => {
+                    e.preventDefault();
+
+                    const catName = link.getAttribute("title").trim(); // title se category naam
+                    console.log("🔎 Selected Category:", catName);
+
+                    // loader start
+                    const originalHTML = link.innerHTML;
+                    link.innerHTML = "<span>Loading...</span>";
+                    link.style.pointerEvents = "none";
+
+                    const minTime = 800; // ms
+                    const startTime = Date.now();
+
+                    // API call
+                    fetch(
+                      "https://swag.thriftops.com/Directory/get-cat-wise-listing.php",
+                      {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ storecategory: catName }),
+                      }
+                    )
+                      .then((res) => res.json())
+                      .then((data) => {
+                        const elapsed = Date.now() - startTime;
+                        const delay = elapsed < minTime ? minTime - elapsed : 0;
+
+                        setTimeout(() => {
+                          // reset loader
+                          link.innerHTML = originalHTML;
+                          link.style.pointerEvents = "auto";
+
+                          if (
+                            !data ||
+                            !data.stores ||
+                            data.stores.length === 0
+                          ) {
+                            alert("No stores found for this category.");
+                            return;
+                          }
+
+                          try {
+                            // save full API data in localStorage
+                            localStorage.setItem(
+                              "directoryData",
+                              JSON.stringify({
+                                header: catName,
+                                totalResults: data.stores.length,
+                                stores: data.stores,
+                              })
+                            );
+
+                            // #b71c1cirect
+                            // old
+                            // window.location.href = "directorydata.html";
+
+                            // new
+                            // Only State
+                            openDirectoryData({ category: catName });
+                            // 👉 URL: /stores/alabama
+                          } catch (err) {
+                            console.error("❌ Storage Error:", err);
+                            alert(
+                              "Data too large to save in localStorage. Please refine the request."
+                            );
+                          }
+                        }, delay);
+                      })
+                      .catch((err) => {
+                        link.innerHTML = originalHTML;
+                        link.style.pointerEvents = "auto";
+                        console.error("❌ API Error:", err);
+                        alert("Failed to fetch category-wise data.");
+                      });
+                  });
+                });
+              });
+            </script>
+          </div>
+          <!-- Icons Row -->
+        </div>
+
+        <!-- Right Side (col-md-5) with Background Image -->
+        <div class="col-md-5 image-col"></div>
+      </div>
+    </div>
+    <div class="container featured-in my-5" style="display: none">
+      <h2 class="TODir_heading text-center mb-4">Featured Thrift Stores</h2>
+      <div class="row justify-content-center align-items-center mt-5">
+        <div class="col-6 col-md-2 text-center mb-3">
+          <a href="https://tosafurniture.com/" target="_blank">
+            <img
+              src="https://tosafurniture.com/cdn/shop/files/tosa-furniture-1.png?v=1649705780&width=150"
+              alt="Tosa Furniture"
+              class="img-fluid featured-logo"
+            />
+          </a>
+        </div>
+
+        <div class="col-6 col-md-2 text-center mb-3">
+          <a href="https://www.dirtbagvintage.co/" target="_blank">
+            <img
+              src="https://f5f3922c5edbde8677a0.cdn6.editmysite.com/uploads/b/f5f3922c5edbde8677a0f93b68f59378ce488acce6eb3c299fb8e54d44a93ba6/Dirtbag%20Logo%20%281%29_1685367567.png?width=2400&optimize=medium"
+              alt="Dirtbag Logo"
+              class="img-fluid featured-logo"
+            />
+          </a>
+        </div>
+
+        <div class="col-6 col-md-2 text-center mb-3">
+          <a href="https://shoptheshop.com/" target="_blank">
+            <img
+              src="https://shoptheshop.com/cdn/shop/files/top-logo.png?v=1702262677&width=140"
+              alt="Shop The Shop"
+              class="img-fluid featured-logo"
+            />
+          </a>
+        </div>
+
+        <div class="col-6 col-md-2 text-center mb-3">
+          <a href="https://www.bustlegowns.com/" target="_blank">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/5334e05ae4b0429a548c1bcc/1401853554792-BENWSPVRHYP6ZWYVZMHA/web_logos_header.png?format=1500w"
+              alt="Bustle Gowns"
+              class="img-fluid featured-logo"
+            />
+          </a>
+        </div>
+
+        <div class="col-6 col-md-2 text-center mb-3">
+          <a href="https://kickvintage.com/" target="_blank">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/5dbc6aae368608788b0d488d/352c99d1-3741-435c-bc78-9d52fa52520e/%60-7.jpg?format=1500w"
+              alt="Kick Vintage"
+              class="img-fluid featured-logo"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container exc_listing my-5">
+      <!-- Heading -->
+      <h2 class="TODir_heading text-center mb-2">
+        Discover Stores In Your Area
+      </h2>
+      <p class="text-center mb-5">
+        Popular Exclusive Listings In Our Directory
+      </p>
+
+      <!-- 6 column grid -->
+      <div class="row row-cols-2 row-cols-md-5 text-center mt-5">
+        <div class="col mb-3"><a href="#">Alabama</a></div>
+        <div class="col mb-3"><a href="#">Arkansas</a></div>
+        <div class="col mb-3"><a href="#">Alaska</a></div>
+        <div class="col mb-3"><a href="#">Arizona</a></div>
+        <div class="col mb-3"><a href="#">Illinois</a></div>
+
+        <div class="col mb-3"><a href="#">Connecticut</a></div>
+        <div class="col mb-3"><a href="#">California</a></div>
+        <div class="col mb-3"><a href="#">Indiana</a></div>
+        <div class="col mb-3"><a href="#">Colorado</a></div>
+        <div class="col mb-3"><a href="#">Delaware</a></div>
+
+        <div class="col mb-3"><a href="#">Iowa</a></div>
+        <div class="col mb-3"><a href="#">Florida</a></div>
+        <div class="col mb-3"><a href="#">Georgia</a></div>
+        <div class="col mb-3"><a href="#">Hawaii</a></div>
+        <div class="col mb-3"><a href="#">Idaho</a></div>
+
+        <div class="col mb-3"><a href="#">New York</a></div>
+        <div class="col mb-3"><a href="#">Tennessee</a></div>
+        <div class="col mb-3"><a href="#">Wisconsin</a></div>
+        <div class="col mb-3"><a href="#">Texas</a></div>
+        <div class="col mb-3"><a href="#">Washington</a></div>
+      </div>
+    </div>
+
+    <div class="container my-5 featured-blogs">
+      <!-- Section Heading -->
+      <h2 class="TODir_heading text-center mb-2">
+        <a href="mainblog.html" class="text-decoration-none text-dark">
+          Latest Blog Posts
+        </a>
+      </h2>
+      <p class="text-center text-muted mb-4">
+        Insights, Guides & Stories From Our Community
+      </p>
+
+      <!-- Cards Row -->
+      <div id="blogCards" class="row"></div>
+    </div>
+
+    <div class="container my-5 browse-thrift-category">
+      <h2 class="TODir_heading text-center mb-2">
+        Discover Trusted Categories on Thriftops
+      </h2>
+      <p class="text-center text-muted mb-4">
+        Popular Exclusive Listings In Our Directory
+      </p>
+
+      <div class="d-flex flex-wrap justify-content-center">
+        <!-- Thrift Store -->
+        <a href="#" class="thrift-category">
+          <i class="fa-solid fa-store"></i>
+          <h4>Thrift Store</h4>
+          <p>Affordable second-hand goods, from clothing to home items.</p>
+        </a>
+
+        <!-- Second-Hand Clothing -->
+        <a href="#" class="thrift-category">
+          <i class="fa-solid fa-shirt"></i>
+          <h4>Second-Hand Clothing</h4>
+          <p>Unique pre-loved fashion at unbeatable thrift prices.</p>
+        </a>
+
+        <!-- Luxury Resale Boutique -->
+        <a href="#" class="thrift-category">
+          <i class="fa-solid fa-gem"></i>
+          <h4>Luxury Resale Boutique</h4>
+          <p>Designer labels and premium items at resale value.</p>
+        </a>
+
+        <!-- Consignment Store -->
+        <a href="#" class="thrift-category">
+          <i class="fa-solid fa-people-carry-box"></i>
+          <h4>Consignment Store</h4>
+          <p>Sell and shop gently-used goods with trusted consignors.</p>
+        </a>
+
+        <!-- Rag House -->
+        <a href="#" class="thrift-category">
+          <i class="fa-solid fa-boxes-stacked"></i>
+          <h4>Rag House</h4>
+          <p>Bulk used clothing supplies for retailers and resellers.</p>
+        </a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <!-- Left: Logo -->
+        <div class="logo">
+          <a href="index.html">
+            <img
+              src="./assets/e474a0171b0e6a9a49ee107efb844fb3.svg"
+              alt="ThriftOps"
+            />
+          </a>
+        </div>
+
+        <!-- Center: Copyright -->
+        <p>© 2025 ThriftOps. All rights reserved.</p>
+
+        <!-- Right: Social Media -->
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/thriftops_by_swagkicks"
+            target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.tiktok.com/@thriftops.ai?_t=ZS-90EhMxmIzrj&_r=1"
+            target="_blank"
+            ><i class="fab fa-tiktok"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+    const servicesToggle = document.getElementById("servicesToggle");
+    const servicesSubNav = document.getElementById("servicesSubNav");
+    servicesToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      servicesSubNav.classList.toggle("d-none");
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileNav = document.getElementById("mobileNav");
+    menuToggle.addEventListener("click", () => {
+      mobileNav.classList.toggle("d-none");
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const stateLinks = document.querySelectorAll(".exc_listing a");
+
+      stateLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const stateName = link.textContent.trim();
+          console.log("🔎 Selected State:", stateName);
+
+          // loader start
+          const originalText = link.textContent;
+          link.textContent = "Loading...";
+          link.style.pointerEvents = "none";
+
+          const minTime = 800; // ms delay jese dusre code me tha
+          const startTime = Date.now();
+
+          // API call (POST, jese tumhari search API thi)
+          fetch(
+            "https://swag.thriftops.com/Directory/get-state-wise-listing.php",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ city: stateName }),
+            }
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              const elapsed = Date.now() - startTime;
+              const delay = elapsed < minTime ? minTime - elapsed : 0;
+
+              setTimeout(() => {
+                // loader reset
+                link.textContent = originalText;
+                link.style.pointerEvents = "auto";
+
+                if (!data || !data.stores || data.stores.length === 0) {
+                  alert("No stores found for this state.");
+                  return;
+                }
+
+                // save localStorage
+                localStorage.setItem(
+                  "directoryData",
+                  JSON.stringify({
+                    header: `${stateName}`,
+                    totalResults: data.stores.length,
+                    stores: data.stores,
+                  })
+                );
+
+                // #b71c1cirect to page
+                // old
+                // window.location.href = "directorydata.html";
+
+                // new
+                // Only State
+                openDirectoryData({ state: stateName });
+                // 👉 URL: /stores/alabama
+              }, delay);
+            })
+            .catch((err) => {
+              link.textContent = originalText;
+              link.style.pointerEvents = "auto";
+              console.error("❌ API Error:", err);
+              alert("Failed to fetch state-wise data.");
+            });
+        });
+      });
+    });
+  </script>
+  <script>
+    // Data for blogs
+    const blogs = [
+      {
+        title:
+          "Why Most Resellers Fail to Scale Beyond 500 Listings (And How to Fix It)",
+        category: "Reselling",
+        summary:
+          "At around 300–500 listings, resellers hit the scaling wall—manual listings, storage chaos, and burnout block growth.",
+        author: "ThriftOps Team",
+        date: "Feb 1, 2025",
+        image: "https://swag.thriftops.com/assets/images/login-banner/1.jpg",
+        link: "./blogs/1-why-most-resellers-fail-to-scale-beyond-500-listings-and-how-to-fix-it.html",
+      },
+      {
+        title:
+          "The Silent Killer of Resale Profits: Bad Photos and Sloppy Listings",
+        category: "Reselling",
+        summary:
+          "Blurry photos and weak descriptions silently drain profits. Presentation matters more than most resellers think.",
+        author: "ThriftOps Team",
+        date: "Feb 5, 2025",
+        image: "https://swag.thriftops.com/assets/images/login-banner/2.jpg",
+        link: "./blogs/2-the-silent-killer-of-resale-profits-bad-photos-and-sloppy-listings.html",
+      },
+      {
+        title: "The Hidden Costs of Manual Listing (and How to Eliminate Them)",
+        category: "Automation",
+        summary:
+          "Manual uploads waste time, money, and energy. Automation is the only way to scale past hobbyist level.",
+        author: "ThriftOps Team",
+        date: "Feb 10, 2025",
+        image: "https://swag.thriftops.com/assets/images/login-banner/3.jpg",
+        link: "./blogs/3-the-hidden-costs-of-manual-listing-and-how-to-eliminate-them.html",
+      },
+      {
+        title:
+          "The Truth About Reselling Shoes Online: Condition, Pricing, and Profitability",
+        category: "Shoes",
+        summary:
+          "Shoes are resale goldmines, but profits vanish without clear frameworks for grading, pricing, and scaling.",
+        author: "ThriftOps Team",
+        date: "Feb 14, 2025",
+        image: "https://swag.thriftops.com/assets/images/login-banner/4.jpg",
+        link: "./blogs/4-the-truth-about-reselling-shoes-online-condition-pricing-and-profitability.html",
+      },
+      {
+        title:
+          "The Hidden Costs of Manual Listing (And How They’re Killing Your Margins)",
+        category: "Margins",
+        summary:
+          "Every manual listing costs $3–$4 in hidden labor. It’s a silent tax killing profits and creating burnout.",
+        author: "ThriftOps Team",
+        date: "Feb 18, 2025",
+        image: "https://swag.thriftops.com/assets/images/login-banner/5.jpg",
+        link: "./blogs/5-the-hidden-costs-of-manual-listing-and-how-theyre-killing-your-margins.html",
+      },
+      {
+        title:
+          "Why Traditional WMS Don’t Work for Resale (And What To Do About It)",
+        category: "WMS",
+        summary:
+          "Traditional warehouse systems fail resale. Unique SKUs, condition grading, and intake chaos need a resale-first WMS.",
+        author: "ThriftOps Team",
+        date: "Feb 22, 2025",
+        image: "https://swag.thriftops.com/assets/images/login-banner/6.jpg",
+        link: "./blogs/6-why-traditional-wms-dont-work-for-resale-and-what-to-do-about-it.html",
+      },
+      {
+        title: "The Hidden Costs of Using the Wrong WMS in Resale",
+        category: "WMS",
+        summary:
+          "Wrong WMS = wasted labor, lost inventory, bad pricing, and scaling bottlenecks. At scale, inefficiency costs $60K+/year.",
+        author: "ThriftOps Team",
+        date: "Feb 25, 2025",
+        image: "https://swag.thriftops.com/assets/images/login-banner/7.jpg",
+        link: "./blogs/7-the-hidden-costs-of-using-the-wrong-wms-in-resale.html",
+      },
+      {
+        title: "What a Resale-First WMS Actually Looks Like",
+        category: "WMS",
+        summary:
+          "Photo-based SKUs, built-in grading, smart pricing, and marketplace sync—what resale-first systems must have.",
+        author: "ThriftOps Team",
+        date: "Feb 28, 2025",
+        image: "https://swag.thriftops.com/assets/images/login-banner/8.jpg",
+        link: "./blogs/8-what-a-resale-first-wms-actually-looks-like.html",
+      },
+    ];
+
+    // Render only 3 latest blogs
+    const blogContainer = document.getElementById("blogCards");
+    blogs.slice(0, 3).forEach((b) => {
+      blogContainer.innerHTML += `
+      <div class="col-md-4 mb-4">
+        <a href="${b.link}" class="text-decoration-none text-dark">
+          <div class="card h-100 shadow-sm card-hover">
+            <img src="${b.image}" class="card-img-top" style="height:400px;" alt="${b.title}">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">${b.title}</h5>
+              <p class="card-category text-muted small mb-2">${b.category}</p>
+              <p class="card-text flex-grow-1">${b.summary}</p>
+              <p class="text-muted small mb-1">By ${b.author} | ${b.date}</p>
+              <div class="mt-auto text-end">
+                <a href="${b.link}" class="text-danger text-decoration-none">
+                  <i class="fa fa-book-open"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    `;
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const catLinks = document.querySelectorAll(".browse-thrift-category a");
+
+      catLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const catName = link.querySelector("h4").textContent.trim();
+          console.log("🔎 Selected Category:", catName);
+
+          // loader start
+          const originalHTML = link.innerHTML;
+          link.innerHTML = "<span>Loading...</span>";
+          link.style.pointerEvents = "none";
+
+          const minTime = 800; // delay
+          const startTime = Date.now();
+
+          // API call
+          fetch(
+            "https://swag.thriftops.com/Directory/get-cat-wise-listing.php",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ storecategory: catName }),
+            }
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              const elapsed = Date.now() - startTime;
+              const delay = elapsed < minTime ? minTime - elapsed : 0;
+
+              setTimeout(() => {
+                // reset loader
+                link.innerHTML = originalHTML;
+                link.style.pointerEvents = "auto";
+
+                if (!data || !data.stores || data.stores.length === 0) {
+                  alert("No stores found for this category.");
+                  return;
+                }
+
+                // save in localStorage
+                localStorage.setItem(
+                  "directoryData",
+                  JSON.stringify({
+                    header: catName,
+                    totalResults: data.stores.length,
+                    stores: data.stores,
+                  })
+                );
+
+                // #b71c1cirect
+                // new
+                // Only Category
+                openDirectoryData({ category: catName });
+              }, delay);
+            })
+            .catch((err) => {
+              link.innerHTML = originalHTML;
+              link.style.pointerEvents = "auto";
+              console.error("❌ API Error:", err);
+              alert("Failed to fetch category-wise data.");
+            });
+        });
+      });
+    });
+  </script>
+  <script>
+    window.addEventListener("scroll", function () {
+      const header = document.querySelector(".thrift-header");
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  </script>
+  <script>
+    const dirSelect = document.getElementById("dirSelect");
+    const dropdown = document.getElementById("whatDropdown");
+
+    // Show dropdown on focus (always show when clicked)
+    dirSelect.addEventListener("focus", function () {
+      dropdown.style.display = "block";
+    });
+
+    // Hide dropdown if user clicks outside
+    document.addEventListener("click", function (e) {
+      if (!dirSelect.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = "none";
+      }
+    });
+
+    // Show/hide based on typing
+    dirSelect.addEventListener("input", function () {
+      if (this.value.trim().length > 0) {
+        dropdown.style.display = "block";
+      } else {
+        dropdown.style.display = "block"; // still show all options when empty
+      }
+    });
+
+    // Fill input when item clicked
+    dropdown.querySelectorAll("li").forEach((item) => {
+      item.addEventListener("click", function () {
+        dirSelect.value = this.innerText.trim();
+        dropdown.style.display = "none";
+      });
+    });
+  </script>
+  <script>
+    const searchBtn = document.querySelector(".btn-search");
+
+    searchBtn.addEventListener("click", () => {
+      // Get values from new inputs
+      const state = document.getElementById("stateInput").value || "New York";
+      const city = document.getElementById("cityInput").value || "Rochester";
+      const category =
+        document.getElementById("dirSelect").value || "Thrift Stores";
+
+      const originalText = searchBtn.innerHTML;
+      searchBtn.disabled = true;
+
+      const minTime = 2000;
+      const startTime = Date.now();
+
+      // Animate dots
+      let dots = 1;
+      searchBtn.innerHTML = `<span class="dots-loader">.</span>`;
+      const interval = setInterval(() => {
+        let dotElements = "";
+        for (let i = 0; i < 3; i++) {
+          dotElements += `<span style="color:#b71c1c; margin:0 2px;">${
+            i < dots ? "." : ""
+          }</span>`;
+        }
+        searchBtn.innerHTML = dotElements;
+        dots = dots < 3 ? dots + 1 : 1;
+      }, 500);
+
+      fetch("https://swag.thriftops.com/Directory/get_listing.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ state, city, storecategory: category }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const elapsed = Date.now() - startTime;
+          const delay = elapsed < minTime ? minTime - elapsed : 0;
+
+          setTimeout(() => {
+            clearInterval(interval);
+            searchBtn.disabled = false;
+            searchBtn.innerHTML = originalText;
+
+            if (!data || !data.stores || data.stores.length === 0) {
+              alert("No stores found for this selection.");
+              return;
+            }
+
+            // Save data to localStorage
+            localStorage.setItem(
+              "directoryData",
+              JSON.stringify({
+                header: `${category}, ${city}, ${state}`,
+                totalResults: data.stores.length,
+                stores: data.stores,
+              })
+            );
+
+            // #b71c1cirect to directorydata.html
+            // State + City + Category
+            openDirectoryData({ state: state, city: city, category: category });
+          }, delay);
+        })
+        .catch((err) => {
+          clearInterval(interval);
+          searchBtn.disabled = false;
+          searchBtn.innerHTML = originalText;
+          console.error("API error:", err);
+          alert("Failed to fetch directory data.");
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      );
+      tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+    });
+  </script>
+  <script>
+    const statesCities = {
+      Alabama: ["Birmingham", "Montgomery", "Mobile", "Huntsville"],
+      Alaska: ["Anchorage", "Fairbanks", "Juneau", "Sitka"],
+      Arizona: ["Phoenix", "Tucson", "Mesa", "Scottsdale"],
+      Arkansas: ["Little Rock", "Fort Smith", "Fayetteville", "Springdale"],
+      California: ["Los Angeles", "San Francisco", "San Diego", "Sacramento"],
+      Colorado: ["Denver", "Colorado Springs", "Aurora", "Boulder"],
+      Connecticut: ["Bridgeport", "New Haven", "Stamford", "Hartford"],
+      Delaware: ["Wilmington", "Dover", "Newark", "Middletown"],
+      Florida: ["Miami", "Orlando", "Tampa", "Jacksonville"],
+      Georgia: ["Atlanta", "Savannah", "Augusta", "Macon"],
+      Hawaii: ["Honolulu", "Hilo", "Kailua", "Pearl City"],
+      Idaho: ["Boise", "Idaho Falls", "Nampa", "Pocatello"],
+      Illinois: ["Chicago", "Springfield", "Naperville", "Peoria"],
+      Indiana: ["Indianapolis", "Fort Wayne", "Evansville", "South Bend"],
+      Iowa: ["Des Moines", "Cedar Rapids", "Davenport", "Sioux City"],
+      Kansas: ["Wichita", "Topeka", "Overland Park", "Lawrence"],
+      Kentucky: ["Louisville", "Lexington", "Bowling Green", "Owensboro"],
+      Louisiana: ["New Orleans", "Baton Rouge", "Lafayette", "Shreveport"],
+      Maine: ["Portland", "Bangor", "Lewiston", "Auburn"],
+      Maryland: ["Baltimore", "Annapolis", "Silver Spring", "Rockville"],
+      Massachusetts: ["Boston", "Worcester", "Springfield", "Cambridge"],
+      Michigan: ["Detroit", "Grand Rapids", "Ann Arbor", "Lansing"],
+      Minnesota: ["Minneapolis", "Saint Paul", "Rochester", "Duluth"],
+      Mississippi: ["Jackson", "Gulfport", "Hattiesburg", "Southaven"],
+      Missouri: ["Kansas City", "Saint Louis", "Springfield", "Columbia"],
+      Montana: ["Billings", "Missoula", "Bozeman", "Great Falls"],
+      Nebraska: ["Omaha", "Lincoln", "Bellevue", "Grand Island"],
+      Nevada: ["Las Vegas", "Reno", "Henderson", "Carson City"],
+      "New Hampshire": ["Manchester", "Nashua", "Concord", "Dover"],
+      "New Jersey": ["Newark", "Jersey City", "Paterson", "Trenton"],
+      "New Mexico": ["Albuquerque", "Santa Fe", "Las Cruces", "Roswell"],
+      "New York": ["New York City", "Buffalo", "Rochester", "Albany"],
+      "North Carolina": ["Charlotte", "Raleigh", "Durham", "Greensboro"],
+      "North Dakota": ["Fargo", "Bismarck", "Grand Forks", "Minot"],
+      Ohio: ["Columbus", "Cleveland", "Cincinnati", "Toledo"],
+      Oklahoma: ["Oklahoma City", "Tulsa", "Norman", "Broken Arrow"],
+      Oregon: ["Portland", "Salem", "Eugene", "Bend"],
+      Pennsylvania: ["Philadelphia", "Pittsburgh", "Allentown", "Erie"],
+      "Rhode Island": ["Providence", "Warwick", "Cranston", "Pawtucket"],
+      "South Carolina": ["Charleston", "Columbia", "Greenville", "Spartanburg"],
+      "South Dakota": ["Sioux Falls", "Rapid City", "Aberdeen", "Brookings"],
+      Tennessee: ["Nashville", "Memphis", "Knoxville", "Chattanooga"],
+      Texas: ["Houston", "Dallas", "Austin", "San Antonio"],
+      Utah: ["Salt Lake City", "Provo", "Ogden", "St. George"],
+      Vermont: ["Burlington", "Montpelier", "Rutland", "Barre"],
+      Virginia: ["Virginia Beach", "Richmond", "Norfolk", "Arlington"],
+      Washington: ["Seattle", "Spokane", "Tacoma", "Olympia"],
+      "West Virginia": [
+        "Charleston",
+        "Huntington",
+        "Morgantown",
+        "Parkersburg",
+      ],
+      Wisconsin: ["Milwaukee", "Madison", "Green Bay", "Kenosha"],
+      Wyoming: ["Cheyenne", "Casper", "Laramie", "Gillette"],
+    };
+
+    const stateInput = document.getElementById("stateInput");
+    const stateDropdown = document.getElementById("stateDropdown");
+    const cityInput = document.getElementById("cityInput");
+    const cityDropdown = document.getElementById("cityDropdown");
+
+    // Show full state list on focus
+    stateInput.addEventListener("focus", function () {
+      const matches = Object.keys(statesCities);
+      stateDropdown.innerHTML = matches
+        .map((s) => `<li class="list-group-item">${s}</li>`)
+        .join("");
+      stateDropdown.style.display = matches.length ? "block" : "none";
+    });
+
+    // State input suggestions while typing
+    stateInput.addEventListener("input", function () {
+      const query = this.value.toLowerCase();
+      const matches = Object.keys(statesCities).filter((s) =>
+        s.toLowerCase().includes(query)
+      );
+      stateDropdown.innerHTML = matches
+        .map((s) => `<li class="list-group-item">${s}</li>`)
+        .join("");
+      stateDropdown.style.display = matches.length ? "block" : "none";
+    });
+
+    // Select state
+    stateDropdown.addEventListener("click", function (e) {
+      if (e.target.tagName === "LI") {
+        stateInput.value = e.target.textContent;
+        stateDropdown.style.display = "none";
+        cityInput.disabled = false;
+        cityInput.value = "";
+        cityDropdown.innerHTML = "";
+      }
+    });
+
+    // Show full city list on focus (only if state is selected)
+    cityInput.addEventListener("focus", function () {
+      const state = stateInput.value;
+      if (!state || !statesCities[state]) return;
+
+      const matches = statesCities[state];
+      cityDropdown.innerHTML = matches
+        .map((c) => `<li class="list-group-item">${c}</li>`)
+        .join("");
+      cityDropdown.style.display = matches.length ? "block" : "none";
+    });
+
+    // City input suggestions while typing
+    cityInput.addEventListener("input", function () {
+      const state = stateInput.value;
+      const query = this.value.toLowerCase();
+      const matches =
+        statesCities[state]?.filter((c) => c.toLowerCase().includes(query)) ||
+        [];
+      cityDropdown.innerHTML = matches
+        .map((c) => `<li class="list-group-item">${c}</li>`)
+        .join("");
+      cityDropdown.style.display = matches.length ? "block" : "none";
+    });
+
+    // Select city
+    cityDropdown.addEventListener("click", function (e) {
+      if (e.target.tagName === "LI") {
+        cityInput.value = e.target.textContent;
+        cityDropdown.style.display = "none";
+      }
+    });
+
+    // Hide dropdowns when clicking outside
+    document.addEventListener("click", function (e) {
+      if (!stateInput.contains(e.target) && !stateDropdown.contains(e.target)) {
+        stateDropdown.style.display = "none";
+      }
+      if (!cityInput.contains(e.target) && !cityDropdown.contains(e.target)) {
+        cityDropdown.style.display = "none";
+      }
+    });
+
+    // Example call
+    function openDirectoryData({ state, city, category }) {
+      const format = (val) =>
+        val ? val.trim().toLowerCase().replace(/\s+/g, "-") : "";
+
+      let prettyURL = "/stores";
+
+      // Build the path based on available params
+      const parts = [
+        state && format(state),
+        city && format(city),
+        category && format(category),
+      ].filter(Boolean);
+      if (parts.length > 0) prettyURL += "/" + parts.join("/");
+
+      // Navigate directly to the pretty URL
+      window.location.href = prettyURL;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+</html>

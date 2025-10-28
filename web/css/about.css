@@ -1,0 +1,674 @@
+/* ===========================
+   Mission Section
+=========================== */
+#mission {
+  padding: 100px 20px;
+  background-color: #e0f7f5; /* secondary color teal */
+  color: #222;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#mission h1 {
+  font-family: "Instrument Serif", serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+#mission h1 em {
+  /* font-style: italic; */
+  font-style: normal;
+  color: #0489b0; /* teal accent */
+}
+
+#mission p {
+  font-family: "GT-Pressura-Regular", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Decorative circles */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+}
+
+.circle-1 {
+  width: 120px;
+  height: 120px;
+  background-color: #0489b0;
+  top: 20px;
+  left: 15%;
+}
+
+.circle-2 {
+  width: 80px;
+  height: 80px;
+  background-color: #0489b0;
+  bottom: 30px;
+  right: 20%;
+}
+
+/* ===========================
+   Why ThriftOps Section
+=========================== */
+.why-thriftops {
+  padding: 100px 20px;
+  background-color: #fff;
+  color: #222;
+}
+
+.why-thriftops h1 {
+  font-family: "Instrument Serif", serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.why-thriftops h1 em {
+  /* font-style: italic; */
+  font-style: normal;
+  color: #d32f2f;
+}
+
+.why-thriftops p {
+  font-family: "GT-Pressura-Regular", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.floating-img {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* ===========================
+   Responsive Styles
+=========================== */
+@media (max-width: 991px) {
+  #mission h1,
+  .why-thriftops h1 {
+    font-size: 2rem;
+  }
+
+  #mission p,
+  .why-thriftops p {
+    font-size: 1rem;
+  }
+
+  .why-thriftops .row {
+    flex-direction: column-reverse;
+  }
+
+  .why-thriftops .col-md-6 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 575px) {
+  #mission {
+    padding: 60px 15px;
+  }
+
+  .why-thriftops {
+    padding: 60px 15px;
+  }
+
+  #mission h1,
+  .why-thriftops h1 {
+    font-size: 1.75rem;
+  }
+
+  #mission p,
+  .why-thriftops p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ===========================
+   What We Offer Section
+=========================== */
+#what-we-offer {
+  padding: 80px 20px;
+  background-color: #ffe6e6; /* light red / primary bg */
+  text-align: center;
+}
+
+#what-we-offer h1 {
+  font-family: "Instrument Serif", serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+#what-we-offer h1 em {
+  /* font-style: italic; */
+  font-style: normal;
+  color: #d32f2f; /* primary red accent */
+}
+
+/* ===========================
+   Offer Cards
+=========================== */
+.offer-card {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 0px 20px 50px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeUp 0.8s forwards;
+}
+
+.offer-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Staggered Animation Delay */
+.offer-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.offer-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.offer-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.offer-card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.offer-card:nth-child(5) {
+  animation-delay: 1s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   Icon Circle (fixed circle, rotating icon)
+=========================== */
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  background-color: #d32f2f; /* primary red */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+}
+
+.icon-circle i {
+  font-size: 2rem;
+  color: #fff;
+  animation: rotateIcon 6s linear infinite;
+  transition: transform 0.3s;
+}
+
+/* Rotate only icon */
+@keyframes rotateIcon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Speed up on hover */
+.offer-card:hover .icon-circle i {
+  animation-duration: 2s;
+  transform: scale(1.2);
+}
+
+/* ===========================
+   Card Content
+=========================== */
+.offer-card h5 {
+  font-family: "Instrument Serif", serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 60px 0 15px 0; /* space for icon */
+}
+
+.offer-card h5 b {
+  /* font-style: italic; */
+  font-style: normal;
+}
+
+.offer-card p {
+  font-family: "GT-Pressura-Regular", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.offer-card .btn {
+  font-family: "GT-Pressura-Regular", sans-serif;
+  background-color: #d32f2f; /* primary red */
+  border-color: #d32f2f;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 50px;
+  align-self: center;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.offer-card .btn:hover {
+  background-color: #b71c1c;
+  border-color: #b71c1c;
+  transform: scale(1.05);
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 991px) {
+  #what-we-offer h1 {
+    font-size: 2rem;
+  }
+
+  .offer-card h5 {
+    font-size: 1.3rem;
+  }
+
+  .offer-card p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 575px) {
+  #what-we-offer {
+    padding: 60px 15px;
+  }
+
+  #what-we-offer h1 {
+    font-size: 1.75rem;
+  }
+
+  .offer-card {
+    padding: 0px 15px 30px;
+  }
+
+  .offer-card h5 {
+    font-size: 1.2rem;
+  }
+
+  .offer-card p {
+    font-size: 0.9rem;
+  }
+
+  .icon-circle {
+    width: 65px;
+    height: 65px;
+    top: -30px;
+  }
+
+  .icon-circle i {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===========================
+   Who We Serve Section
+=========================== */
+#who-we-serve {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #fff5f5 0%, #f5fdfd 100%);
+}
+
+#who-we-serve h1 {
+  font-family: "Instrument Serif", serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 70px;
+}
+
+#who-we-serve h1 em {
+  /* font-style: italic; */
+  font-style: normal;
+  color: #d32f2f; /* primary */
+}
+
+/* ===========================
+   Wrapper (Staggered Layout)
+=========================== */
+.serve-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.serve-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 0px 25px 40px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  position: relative;
+  flex: 1;
+  min-width: 280px;
+  max-width: 320px;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeUp 0.8s forwards;
+}
+
+/* Middle card highlighted */
+.serve-card.center {
+  transform: translateY(-30px);
+  max-width: 350px;
+  z-index: 0;
+}
+
+.serve-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 18px 35px rgba(211, 47, 47, 0.2);
+}
+
+/* Animation */
+.serve-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.serve-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.serve-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   Icon Circle
+=========================== */
+.icon-circle {
+  width: 90px;
+  height: 90px;
+  background: #d32f2f; /* primary */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.icon-circle i {
+  font-size: 2rem;
+  color: #fff;
+  animation: rotateIcon 6s linear infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(211, 47, 47, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(211, 47, 47, 0);
+  }
+}
+
+@keyframes rotateIcon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===========================
+   Text
+=========================== */
+.serve-card h5 {
+  font-family: "Instrument Serif", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 60px 0 15px;
+  color: #222;
+}
+
+.serve-card p {
+  font-family: "GT-Pressura-Regular", sans-serif;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 991px) {
+  .serve-wrapper {
+    gap: 20px;
+  }
+  .serve-card.center {
+    transform: none;
+  }
+  #who-we-serve h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 575px) {
+  #who-we-serve {
+    padding: 70px 15px;
+  }
+  .serve-card {
+    max-width: 100%;
+  }
+  .icon-circle {
+    width: 70px;
+    height: 70px;
+    top: -35px;
+  }
+  .icon-circle i {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===========================
+   Impact Section (Unique)
+=========================== */
+.impact-section {
+  padding: 100px 20px;
+  background: #fff5f5;
+}
+
+.impact-section h1 {
+  font-family: "Instrument Serif", serif;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.impact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.impact-circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "GT-Pressura-Regular", sans-serif;
+  padding: 20px;
+  transition: transform 0.4s, box-shadow 0.4s;
+  position: relative;
+}
+
+.impact-circle h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.impact-circle p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.impact-circle.red {
+  border: 4px solid #d32f2f;
+  color: #d32f2f;
+}
+.impact-circle.teal {
+  border: 4px solid #0489b0;
+  color: #0489b0;
+}
+
+.impact-circle:hover {
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* ===========================
+   Promise Section (Modern)
+=========================== */
+.promise-section {
+  padding: 100px 20px;
+  position: relative;
+  background: #f9f9f9;
+  overflow: hidden;
+}
+
+.promise-section h1 {
+  font-family: "Instrument Serif", serif;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.promise-section p {
+  font-family: "GT-Pressura-Regular", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.highlight-red {
+  color: #d32f2f;
+  font-weight: 600;
+}
+.highlight-teal {
+  color: #0489b0;
+  font-weight: 600;
+}
+
+/* Blob animation */
+.blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at 30% 30%, #d32f2f, #0489b0);
+  border-radius: 60% 40% 30% 70% / 60% 40% 70% 40%;
+  transform: translate(-50%, -50%);
+  animation: morph 5s infinite ease-in-out;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 40% 70% 40%;
+  }
+  50% {
+    border-radius: 40% 60% 70% 30% / 50% 70% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 40% 70% 40%;
+  }
+}
+
+/* Icon above blob */
+.promise-icon {
+  position: relative;
+  z-index: 2;
+  font-size: 5rem;
+  color: #d32f2f;
+  background: #fff;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .impact-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .promise-section {
+    text-align: center;
+  }
+  .blob {
+    display: none; /* hide abstract bg on small screens */
+  }
+}

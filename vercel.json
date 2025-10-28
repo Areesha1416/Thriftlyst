@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/pricing", "destination": "/pricing.html" },
+    { "source": "/directory", "destination": "/directory.html" },
+    { "source": "/directoryData", "destination": "/directorydata.html" },
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/stores/:path*", "destination": "/directorydata.html" },
+    { "source": "/store/:path*", "destination": "/indivisualdir.html" }
+  ]
+}

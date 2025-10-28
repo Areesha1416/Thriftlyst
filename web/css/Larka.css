@@ -1,0 +1,407 @@
+.larka__unnamed {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 0px 18px;
+}
+@media (max-width: 991px) {
+  .larka__unnamed {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px 18px;
+  }
+}
+.larka__unnamed1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 131px 0px;
+  margin: 166px 0px 0px;
+  width: 652px;
+  min-width: 0px;
+}
+@media (max-width: 991px) {
+  .larka__unnamed1 {
+    gap: 50px 0px;
+    flex: 0 1 auto;
+    order: 3;
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+  }
+}
+.larka__unnamed2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px 0px;
+}
+@media (max-width: 991px) {
+  .larka__unnamed2 {
+    align-items: start;
+    -moz-column-gap: 0px;
+    column-gap: 0px;
+  }
+}
+.larka__hero_title1 {
+  position: relative;
+  width: auto;
+  height: auto;
+  font: 600 66px/1.2 "Proxima Nova", Helvetica, Arial, serif;
+  color: black;
+  padding: 10px 0px 0px 0px;
+  word-break: normal;
+}
+@media (max-width: 1399px) {
+  .larka__hero_title1 {
+    align-items: flex-start;
+    font-size: 66px;
+  }
+}
+@media (max-width: 767px) {
+  .larka__hero_title1 {
+    font-size: 60px;
+  }
+}
+@media (max-width: 479px) {
+  .larka__hero_title1 {
+    font-size: 44px;
+  }
+}
+.larka__medium_title {
+  position: relative;
+  margin: 0px 58px 0px 5px;
+  width: auto;
+  height: auto;
+  font: 400 24px/1.5 "Poppins", Helvetica, Arial, serif;
+  color: black;
+}
+@media (max-width: 1399px) {
+  .larka__medium_title {
+    align-items: flex-start;
+    font-size: 24px;
+  }
+}
+@media (max-width: 991px) {
+  .larka__medium_title {
+    margin: 0px;
+  }
+}
+@media (max-width: 767px) {
+  .larka__medium_title {
+    font-size: 20px;
+  }
+}
+.larka__unnamed3 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  align-content: center;
+  gap: 9px 0px;
+  width: 398px;
+}
+@media (max-width: 575px) {
+  .larka__unnamed3 {
+    width: auto;
+  }
+}
+@media (max-width: 479px) {
+  .larka__unnamed3 {
+    width: 320px;
+  }
+}
+@media (max-width: 383px) {
+  .larka__unnamed3 {
+    align-items: center;
+    -moz-column-gap: 0px;
+    column-gap: 0px;
+  }
+}
+.larka__content_box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 398px;
+  height: 64px;
+  transition-duration: 0.5s;
+  transition-property: transform;
+}
+@media (max-width: 1399px) {
+  .larka__content_box {
+    padding: 0px 0px 10px 0px;
+  }
+}
+@media (max-width: 479px) {
+  .larka__content_box {
+    width: 280px;
+    height: auto;
+  }
+}
+@media (max-width: 383px) {
+  .larka__content_box {
+    padding: 0px 0px 5px 0px;
+  }
+}
+.larka__content_box:hover {
+  transform: scale(1.1);
+}
+.larka__btn {
+  position: absolute;
+  top: 9px;
+  right: 0px;
+  bottom: 2px;
+  left: 82px;
+  display: flex;
+  justify-content: center;
+  width: 316px;
+  height: 53px;
+  font: 600 32px/1.2 "Proxima Nova", Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  background-color: white;
+  padding: 7px 36px 7px 36px;
+  outline: 3px solid black;
+  outline-offset: -3px;
+  letter-spacing: -1.2px;
+}
+@media (min-width: 1920px) and (max-width: 2999px) {
+  .larka__btn {
+    left: auto;
+  }
+}
+@media (max-width: 479px) {
+  .larka__btn {
+    align-items: flex-start;
+    width: 280px;
+    font-size: 25px;
+  }
+}
+@media (max-width: 383px) {
+  .larka__btn {
+    align-items: center;
+    width: auto;
+    padding: 7px 25px 7px 25px;
+    font-size: 17px;
+  }
+}
+.larka__image1 {
+  position: absolute;
+  top: 0px;
+  right: 294px;
+  bottom: 0px;
+  left: 0px;
+  width: 104px;
+  height: 66px;
+}
+@media (max-width: 575px) {
+  .larka__image1 {
+    bottom: -8px;
+  }
+}
+.larka__highlight {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px 1px;
+  width: 396px;
+  height: 26px;
+  font: 400 17.5238075256px/1.48 "Poppins", Helvetica, Arial, serif;
+  color: black;
+  text-align: right;
+}
+@media (min-width: 1920px) and (max-width: 2999px) {
+  .larka__highlight {
+    width: auto;
+  }
+}
+@media (max-width: 479px) {
+  .larka__highlight {
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 55px 1px 0px;
+    height: auto;
+    text-align: left;
+    font-size: 17.5238075256px;
+  }
+}
+@media (max-width: 383px) {
+  .larka__highlight {
+    width: auto;
+    font-size: 12px;
+  }
+}
+.larka__image11 {
+  position: relative;
+  width: 642px;
+  min-width: 0px;
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+@media (min-width: 1920px) and (max-width: 2999px) {
+  .larka__image11 {
+    width: auto;
+    max-width: 100%;
+  }
+}
+@media (max-width: 1399px) {
+  .larka__image11 {
+    width: auto;
+    max-width: 100%;
+  }
+}
+@media (max-width: 991px) {
+  .larka__image11 {
+    flex: 0 1 auto;
+    order: 1;
+    margin-top: unset;
+    margin-bottom: unset;
+    width: 100%;
+  }
+}
+.larka__image11:hover {
+  transform: scale(1.1);
+}
+
+/* -------------------- LARGE DESKTOPS (1200px+) -------------------- */
+@media (min-width: 1200px) {
+  .TODir_heading {
+    font-size: 50px;
+  }
+}
+
+/* -------------------- LAPTOPS (992px – 1199px) -------------------- */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .TODir_heading {
+    font-size: 42px;
+  }
+  .tod-search .form-control {
+    font-size: 13px;
+  }
+  .tod-icons {
+    gap: 20px;
+  }
+}
+
+/* -------------------- TABLETS LANDSCAPE (768px – 991px) -------------------- */
+@media (min-width: 768px) and (max-width: 991px) {
+  .TODir_heading {
+    font-size: 36px;
+    text-align: center;
+  }
+  .tod-search .row {
+    flex-direction: column;
+  }
+  .tod-search .col-md-5,
+  .tod-search .col-md-2 {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .tod-icons {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .image-col {
+    min-height: 250px;
+    border-radius: 6px;
+  }
+}
+
+/* -------------------- TABLETS PORTRAIT (600px – 767px) -------------------- */
+@media (min-width: 600px) and (max-width: 767px) {
+  .TODir_heading {
+    font-size: 30px;
+    line-height: 1.3;
+    text-align: center;
+  }
+  .tod-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .featured-in h2,
+  .exc_listing h2,
+  .featured-blogs h2,
+  .browse-thrift-category h2 {
+    font-size: 28px;
+  }
+  .browse-thrift-category .thrift-category {
+    width: 45%;
+    margin: 8px;
+  }
+}
+
+/* -------------------- LARGE PHONES (480px – 599px) -------------------- */
+@media (min-width: 480px) and (max-width: 599px) {
+  .TODir_heading {
+    font-size: 26px;
+  }
+  .tod-search .row {
+    flex-direction: column;
+  }
+  .tod-search .col-md-5,
+  .tod-search .col-md-2 {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .browse-thrift-category .thrift-category {
+    width: 100%;
+    margin: 8px 0;
+  }
+  .exc_listing .row-cols-md-5 {
+    row-gap: 12px;
+  }
+}
+
+/* -------------------- SMALL PHONES (max-width: 479px) -------------------- */
+@media (max-width: 479px) {
+  .TODir_heading {
+    font-size: 22px;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .tod-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .tod-icon-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+  .featured-logo {
+    max-height: 40px;
+  }
+  .browse-thrift-category .thrift-category {
+    width: 100%;
+    margin: 6px 0;
+    padding: 18px;
+  }
+  .how-it-works .work-step-card {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+/* -------------------- EXTRA SMALL DEVICES (max-width: 360px) -------------------- */
+@media (max-width: 360px) {
+  .TODir_heading {
+    font-size: 20px;
+  }
+  .btn-search {
+    font-size: 12px;
+    padding: 0 12px;
+  }
+  .tod-icon-circle {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+}
