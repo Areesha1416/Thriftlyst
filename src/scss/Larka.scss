@@ -1,0 +1,222 @@
+@use "utils" as *;
+@use "global" as *;
+
+.larka {
+  &__unnamed {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 0px 18px;
+    @include md {
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px 18px;
+    }
+  }
+  &__unnamed1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 131px 0px;
+    margin: 166px 0px 0px;
+    width: 652px;
+    min-width: 0px;
+    @include md {
+      gap: 50px 0px;
+      flex: 0 1 auto;
+      order: 3;
+      margin-top: unset;
+      margin-bottom: unset;
+      width: 100%;
+    }
+  }
+  &__unnamed2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    gap: 13px 0px;
+    @include md {
+      align-items: flex-start;
+      column-gap: 0px;
+    }
+  }
+  &__hero_title1 {
+    position: relative;
+    width: auto;
+    height: auto;
+    font: 600 66px/1.2 "Proxima Nova", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    padding: 10px 0px 0px 0px;
+    word-break: normal;
+    @include xl {
+      align-items: flex-start;
+      font-size: 66px;
+    }
+    @include sm {
+      font-size: 60px;
+    }
+    @include xxs {
+      font-size: 44px;
+    }
+  }
+  &__medium_title {
+    position: relative;
+    // margin: 0px 58px 0px 5px;
+    width: auto;
+    height: auto;
+    font: 400 24px/1.5 "Poppins", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    @include xl {
+      align-items:flex-start;
+      font-size: 24px;
+    }
+    @include md {
+      margin: 0px;
+    }
+    @include sm {
+      font-size: 20px;
+    }
+  }
+  &__unnamed3 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    align-content: center;
+    gap: 9px 0px;
+    width: 398px;
+    @include xs {
+      width: auto;
+    }
+    @include xxs {
+      width: 320px;
+    }
+    @include tn {
+      align-items: center;
+      column-gap: 0px;
+    }
+  }
+  &__content_box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 398px;
+    height: 64px;
+    transition-duration: 0.5s;
+    transition-property: transform;
+    @include xl {
+      padding: 0px 0px 10px 0px;
+    }
+    @include xxs {
+      width: 280px;
+      height: auto;
+    }
+    @include tn {
+      padding: 0px 0px 5px 0px;
+    }
+  }
+  &__content_box:hover {
+    transform: scale(1.1);
+  }
+  &__btn {
+    position: absolute;
+    top: 9px;
+    right: 0px;
+    bottom: 2px;
+    left: 82px;
+    display: flex;
+    justify-content: center;
+    width: 316px;
+    height: 53px;
+    font: 600 32px/1.2 "Proxima Nova", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    padding: 7px 36px 7px 36px;
+    outline: 3px solid rgb(0, 0, 0);
+    outline-offset: -3px;
+    letter-spacing: -1.2px;
+    @include mq-between(xxl, xxxl) {
+      left: auto;
+    }
+    @include xxs {
+      align-items: flex-start;
+      width: 280px;
+      font-size: 25px;
+    }
+    @include tn {
+      align-items: center;
+      width: auto;
+      padding: 7px 25px 7px 25px;
+      font-size: 17px;
+    }
+  }
+  &__image1 {
+    position: absolute;
+    top: 0px;
+    right: 294px;
+    bottom: 0px;
+    left: 0px;
+    width: 104px;
+    height: 66px;
+    @include xs {
+      bottom: -8px;
+    }
+  }
+  &__highlight {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0px 1px;
+    width: 396px;
+    height: 26px;
+    font: 400 17.523807525634766px/1.48 "Poppins", Helvetica, Arial, serif;
+    color: rgb(0, 0, 0);
+    text-align: right;
+    @include mq-between(xxl, xxxl) {
+      width: auto;
+    }
+    @include xxs {
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin: 55px 1px 0px;
+      height: auto;
+      text-align: left;
+      font-size: 17.523807525634766px;
+    }
+    @include tn {
+      width: auto;
+      font-size: 12px;
+    }
+  }
+  &__image11 {
+    position: relative;
+    width: 642px;
+    min-width: 0px;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    @include mq-between(xxl, xxxl) {
+      width: auto;
+      max-width: 100%;
+    }
+    @include xl {
+      width: auto;
+      max-width: 100%;
+    }
+    @include md {
+      flex: 0 1 auto;
+      order: 1;
+      margin-top: unset;
+      margin-bottom: unset;
+      width: 100%;
+    }
+  }
+  &__image11:hover {
+    transform: scale(1.1);
+  }
+}
