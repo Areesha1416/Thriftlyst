@@ -1,0 +1,178 @@
+<!-- Header -->
+<header class="thrift-header border-bottom bg-white">
+  <div class="container d-flex align-items-center justify-content-between py-3">
+    <!-- Left group: Burger + Logo -->
+    <div class="d-flex align-items-center gap-2">
+      <!-- Burger -->
+      <button
+        class="btn btn-link p-0 d-lg-none btn-cta-outline"
+        id="menu-toggle"
+        aria-label="Menu"
+      >
+        <i class="fa fa-bars fs-4 text-dark"></i>
+      </button>
+
+      <!-- Logo -->
+      <a href="/index.html" class="navbar-brand d-flex align-items-center m-0">
+        <img
+          src="/assets/e474a0171b0e6a9a49ee107efb844fb3.svg"
+          alt="ThriftOps"
+          height="32"
+        />
+      </a>
+    </div>
+
+    <!-- Desktop Nav -->
+    <nav
+      class="main-nav d-none d-lg-flex align-items-center px-4 py-2 rounded-pill bg-light shadow-sm sticky-top"
+    >
+      <ul class="nav gap-3 m-0">
+        <li class="nav-item">
+          <a href="/about.html" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" id="servicesToggle" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" id="resaleToggle" class="nav-link">Automate Resale</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="https://calendly.com/mateenansari/thriftops-demo-call"
+            target="_blank"
+            style="font-family: 'GT-Pressura-Regular', sans-serif !important"
+            class="btn btn-danger btn-sm px-3 rounded-pill btn-cta book-demo"
+          >
+            Book a Demo
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Right Side -->
+    <div class="d-flex align-items-center gap-2">
+      <a
+        href="/directory.html"
+        class="btn btn-outline-dark btn-sm px-3 rounded-pill btn-cta-outline login"
+      >
+        Thrift Lyst
+      </a>
+    </div>
+  </div>
+
+  <!-- Desktop Sub-Nav -->
+  <div id="servicesSubNav" class="sub-nav d-none text-center my-2">
+    <nav
+      class="main-nav d-inline-flex align-items-center px-4 py-2 rounded-pill bg-light shadow-sm"
+    >
+      <ul class="nav gap-3 m-0">
+        <li>
+          <a href="/services/inbound.html" class="nav-link">Inventory Intake</a>
+        </li>
+        <li>
+          <a href="/services/ai-listing.html" class="nav-link"
+            >Automated Listings</a
+          >
+        </li>
+        <li>
+          <a href="/services/accurate-pricing-algorithm.html" class="nav-link"
+            >Smart Pricing</a
+          >
+        </li>
+        <li>
+          <a href="/services/last-mile.html" class="nav-link"
+            >Order Fulfillment</a
+          >
+        </li>
+        <li>
+          <a href="/services/W&IS.html" class="nav-link">1/1 Warehousing</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div id="resaleSubNav" class="sub-nav d-none text-center my-2">
+    <nav
+      class="main-nav d-inline-flex align-items-center px-4 py-2 rounded-pill bg-light shadow-sm"
+    >
+      <ul class="nav gap-3 m-0">
+        <li>
+          <a href="/whythriftops.html" class="nav-link">Why ThriftOps</a>
+        </li>
+        <li><a href="/mainblog.html" class="nav-link">Who it's for</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Mobile Nav -->
+  <nav id="mobileNav" class="mobile-nav d-lg-none d-none bg-light p-3">
+    <ul class="nav flex-column gap-3">
+      <li><a href="/about.html" class="nav-link">About</a></li>
+
+      <!-- Services Toggle -->
+      <li class="nav-item">
+        <a href="#" id="servicesToggleMobile" class="nav-link">Services</a>
+        <div id="servicesSubNavMobile" class="sub-nav d-none mt-2">
+          <ul class="nav flex-column gap-2">
+            <li>
+              <a href="/services/inbound.html" class="nav-link"
+                >Inventory Intake</a
+              >
+            </li>
+            <li>
+              <a href="/services/ai-listing.html" class="nav-link"
+                >Automated Listings</a
+              >
+            </li>
+            <li>
+              <a
+                href="/services/accurate-pricing-algorithm.html"
+                class="nav-link"
+                >Smart Pricing</a
+              >
+            </li>
+            <li>
+              <a href="/services/last-mile.html" class="nav-link"
+                >Order Fulfillment</a
+              >
+            </li>
+            <li>
+              <a href="/services/W&IS.html" class="nav-link">1/1 Warehousing</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Resale Toggle -->
+      <li class="nav-item">
+        <a href="#" id="resaleToggleMobile" class="nav-link">Automate Resale</a>
+        <div id="resaleSubNavMobile" class="sub-nav d-none mt-2">
+          <ul class="nav flex-column gap-2">
+            <li>
+              <a href="/whythriftops.html" class="nav-link">Why ThriftOps</a>
+            </li>
+            <li>
+              <a href="/mainblog.html" class="nav-link">Who it's for</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a
+          href="https://calendly.com/mateenansari/thriftops-demo-call"
+          target="_blank"
+          class="btn btn-cta book-demo w-100"
+        >
+          Book a Demo
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="/directory.html" class="btn btn-cta-outline login w-100"
+          >Thrift Lyst</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>
