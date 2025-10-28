@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThriftOps Directory - National Thrift Store Directory</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="./css/HeaderArea.css" />
+    <link rel="stylesheet" type="text/css" href="./css/footer.css" />
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Bootstrap JS Bundle (for collapse, modal, dropdown, etc.) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+      body {
+        background-color: #f1f3f8;
+        font-family: "Poppins", sans-serif;
+      }
+      .nav-link {
+        color: #7f7f7f !important;
+        font-size: 13px;
+      }
+      .btn-register {
+        font-size: 14px;
+        font-family: "Poppins", sans-serif;
+        border: 1px solid black;
+        color: red;
+        background: transparent;
+        border-radius: 0px;
+        padding: 5px 15px;
+      }
+      .btn-login {
+        font-size: 14px;
+        font-family: "Poppins", sans-serif;
+        background: red;
+        color: white;
+        border: none;
+        border-radius: 0px;
+        padding: 5px 15px;
+      }
+      .btn-register i,
+      .btn-login i {
+        margin-right: 6px;
+      }
+
+      /* Containers */
+      .d-flex > .filter-container {
+        width: 350px;
+        flex-shrink: 0;
+        font-size: 14px;
+      }
+
+      .d-flex > .listing-container {
+        width: 400px; /* default width */
+        flex-shrink: 0;
+      }
+
+      .d-flex > .listing-container.double-row {
+        width: 800px; /* double width if needed */
+      }
+
+      .d-flex > .map-container {
+        flex-grow: 1; /* remaining width */
+      }
+
+      .d-flex > * {
+        margin: 0; /* no gap */
+        border-right: 1px solid #eee; /* optional separator */
+      }
+
+      .d-flex > *:last-child {
+        border-right: none;
+      }
+
+      /* Min height for containers */
+      .filter-container,
+      .listing-container,
+      .map-container {
+        min-height: 500px;
+      }
+
+      /* Filter container */
+      .filter-container {
+        background: #fff;
+        padding: 16px;
+      }
+
+      /* Filter headings */
+      .filter-container h5,
+      .filter-container h6 {
+        font-weight: 600;
+      }
+
+      /* Filter buttons */
+      .filter-container button {
+        font-size: 13px;
+        border-radius: 4px;
+        border: 1px solid;
+      }
+
+      /* Categories Dropdown Wrapper */
+      .tod-categories-wrapper {
+        position: relative;
+      }
+
+      /* Dropdown Panel */
+      .tod-categories-wrapper .dropdown-panel {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: 250px; /* fixed height */
+        overflow-y: auto;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-top: none;
+        z-index: 999;
+      }
+
+      /* Dropdown Items */
+      .tod-categories-wrapper .list-group-item {
+        cursor: pointer;
+        font-size: 14px;
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        align-items: center;
+        padding: 10px 12px;
+        border: none;
+        border-bottom: 1px solid #eee;
+      }
+
+      .tod-categories-wrapper .list-group-item:last-child {
+        border-bottom: none;
+      }
+
+      .tod-categories-wrapper .list-group-item:hover {
+        background: #504c4c;
+        color: #fff;
+      }
+
+      /* Collapsible header */
+      .filter-header {
+        cursor: pointer;
+        border: 1px solid #ddd;
+        padding: 10px;
+        height: 48px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Sort By Buttons */
+      .filter-container .d-flex.flex-wrap.gap-2 .btn {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      /* More Filters */
+      .filter-container h6 {
+        color: #aaa9a9;
+      }
+
+      .filter-container .mt-4 p {
+        font-size: 14px;
+        color: #6c757d;
+        margin: 0;
+      }
+
+      /* Optional scrollbar styling */
+      .tod-categories-wrapper .dropdown-panel::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .tod-categories-wrapper .dropdown-panel::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid #3b3838;
+        margin: 15px 0; /* spacing upar neeche */
+      }
+
+      .listing-container {
+        max-height: 600px; /* ya apke layout ke hisab se */
+        overflow-y: auto;
+        padding-right: 10px; /* thoda space scrollbar ke liye */
+      }
+
+      /* Custom scrollbar for Webkit browsers */
+      .listing-container::-webkit-scrollbar {
+        width: 8px; /* width of scrollbar */
+      }
+
+      .listing-container::-webkit-scrollbar-track {
+        background: #f1f3f8; /* track color */
+      }
+
+      .listing-container::-webkit-scrollbar-thumb {
+        background-color: red; /* scrollbar color */
+        border-radius: 4px;
+        border: 2px solid #f1f3f8; /* optional padding around thumb */
+      }
+
+      /* For Firefox */
+      .listing-container {
+        scrollbar-width: thin;
+        scrollbar-color: red #f1f3f8;
+      }
+      /* Listing Header */
+      .listing-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .listing-header-left h5 {
+        font-size: 16px;
+        font-weight: 900;
+        margin: 0;
+      }
+
+      .listing-header-left span {
+        font-size: 13px;
+        color: #7f7f7f;
+        display: block;
+      }
+
+      .view-toggle {
+        display: flex;
+        gap: 10px;
+      }
+
+      .view-toggle i {
+        cursor: pointer;
+        font-size: 16px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        color: #7f7f7f;
+        transition: all 0.2s ease;
+      }
+
+      .view-toggle i.active,
+      .view-toggle i:hover {
+        border-color: red;
+        color: red;
+      }
+
+      /* Card layout variations */
+      /* Listing Container Width Variations */
+      .listing-container.single-row {
+        width: 400px; /* 1 listing per row */
+      }
+
+      .listing-container.double-row {
+        width: 800px; /* 2 listings per row */
+        white-space: normal; /* allow inline-block cards to wrap */
+      }
+
+      /* Cards Layout */
+      .listing-container.single-row .listing-card {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      .listing-container.double-row .listing-card {
+        width: calc(50% - 10px);
+        display: inline-block;
+        vertical-align: top;
+        margin-bottom: 15px;
+        margin-right: 10px;
+      }
+
+      .listing-container.double-row .listing-card:nth-child(2n) {
+        margin-right: 0;
+      }
+
+      .listing-container .listing-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .listing-container .listing-card {
+        margin-bottom: 20px;
+        padding: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .listing-container .listing-card:hover img {
+        transform: scaleX(0.95); /* zoom in */
+      }
+
+      /* Card inner styling same as previous page */
+      .listing-container .listing-card img {
+        width: 100%;
+        height: 240px;
+        max-height: 240px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        transition: transform 0.4s ease-in-out;
+      }
+      .listing-card .img-wrapper {
+        position: relative;
+      }
+
+      .rating-box {
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+      }
+
+      .rating-number {
+        color: white;
+        background: red;
+        margin: 0;
+        padding: 8px;
+      }
+
+      .rating-stars {
+        background: white;
+        padding: 12px;
+        cursor: pointer;
+        opacity: 0;
+        transform: scaleY(0);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        border-radius: 0 4px 4px 0; /* optional, rounded right side */
+      }
+      .rating-stars i {
+        color: #000000; /* default color for empty stars */
+        margin-right: 2px;
+        margin: 0;
+      }
+
+      .rating-stars i.filled {
+        color: #f5c518; /* gold color for filled stars */
+      }
+
+      .rating-stars i.fa-star-half-alt.filled {
+        /* optional: half star color customization */
+        color: #f5c518;
+      }
+      /* Hover to show stars */
+      .img-wrapper:hover .rating-stars {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+
+      .listing-container .listing-card h5 {
+        font-size: 16px;
+        font-weight: 900;
+        margin-bottom: 5px;
+      }
+
+      .listing-container .listing-card .category {
+        font-size: 13px;
+        color: #c2c4d6;
+        margin-bottom: 10px;
+      }
+
+      .listing-container .listing-card p.summary {
+        font-size: 13px;
+        line-height: 20px;
+        height: 40px; /* 2 lines */
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+
+      .listing-container .listing-card .city {
+        font-weight: 500;
+        font-size: 13px;
+      }
+
+      .listing-container .listing-card .preview {
+        text-align: right;
+        font-size: 13px;
+        color: red;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container-fluid py-2">
+      <div class="d-flex justify-content-between align-items-center">
+        <!-- Left: Logo -->
+        <div>
+          <img
+            src="./assets/e474a0171b0e6a9a49ee107efb844fb3.svg"
+            alt="Logo"
+            height="40"
+          />
+        </div>
+
+        <!-- Center: Links -->
+        <nav>
+          <ul class="nav justify-content-center gap-4">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Right: Buttons -->
+        <div class="d-flex gap-2">
+          <!-- <button class="btn-register">
+            <i class="fa fa-user-o"></i> Register
+          </button>
+          <button class="btn-login"><i class="fa fa-user-o"></i> Login</button> -->
+        </div>
+      </div>
+    </header>
+
+    <div class="container-fluid my-3 p-0">
+      <div class="d-flex flex-row w-100">
+        <!-- Filter Container -->
+        <div class="filter-container p-3 bg-white">
+          <!-- Top Heading -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="m-0">Filters</h5>
+            <span class="reset-text" style="cursor: pointer; color: #6c757d">
+              <i class="fa fa-undo me-1"></i> Reset
+            </span>
+          </div>
+          <hr />
+          <!-- Categories Dropdown (same as before) -->
+          <div class="mb-3 position-relative tod-categories-wrapper">
+            <h6>CATEGORIES</h6>
+            <div
+              class="filter-header d-flex justify-content-between align-items-center"
+              data-bs-toggle="collapse"
+              data-bs-target="#categoriesDropdown"
+              style="
+                cursor: pointer;
+                border: 1px solid #ddd;
+                padding: 10px;
+                height: 48px;
+              "
+            >
+              <div class="d-flex align-items-center">
+                <i class="fa fa-list me-2"></i>
+                <span>Categories</span>
+              </div>
+              <i class="fa fa-angle-down"></i>
+            </div>
+            <div id="categoriesDropdown" class="collapse dropdown-panel">
+              <!-- Categories -->
+              <ul class="list-group" id="categoryFilters">
+                <li class="list-group-item" data-category="All">
+                  All Categories
+                </li>
+                <li class="list-group-item" data-category="Thrift Store">
+                  Thrift Store
+                </li>
+                <li
+                  class="list-group-item"
+                  data-category="Second-Hand Clothing"
+                >
+                  Second-Hand Clothing
+                </li>
+                <li
+                  class="list-group-item"
+                  data-category="Luxury Resale Boutique"
+                >
+                  Luxury Resale Boutique
+                </li>
+                <li class="list-group-item" data-category="Consignment Store">
+                  Consignment Store
+                </li>
+                <li class="list-group-item" data-category="Rag House">
+                  Rag House
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+
+          <!-- Sort By -->
+          <div class="mb-3">
+            <h6>SORT BY</h6>
+            <div class="row g-2">
+              <div class="col-6">
+                <button
+                  class="btn btn-sm btn-outline-dark w-100"
+                  data-sort="mostReviewed"
+                >
+                  <i class="fa fa-star me-1"></i> Most Reviewed
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-sm btn-outline-dark w-100"
+                  data-sort="a-z"
+                >
+                  <i class="fa fa-sort-alpha-down me-1"></i> A - Z
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-sm btn-outline-dark w-100"
+                  data-sort="z-a"
+                >
+                  <i class="fa fa-sort-alpha-up me-1"></i> Z - A
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-sm btn-outline-dark w-100"
+                  data-sort="ratingHigh"
+                >
+                  <i class="fa fa-arrow-up me-1"></i> Rating High-Low
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-sm btn-outline-dark w-100"
+                  data-sort="ratingLow"
+                >
+                  <i class="fa fa-arrow-down me-1"></i> Rating Low-High
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  class="btn btn-sm btn-outline-dark w-100"
+                  data-sort="recent"
+                >
+                  <i class="fa fa-clock me-1"></i> Recently Added
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <!-- More Filters -->
+          <div class="mt-4">
+            <h6>MORE FILTER</h6>
+            <p class="text-muted mb-0" style="font-size: 14px">
+              Sorry! No more filter found for current selections
+            </p>
+          </div>
+        </div>
+
+        <!-- Listing Container -->
+        <div class="listing-section position-relative">
+          <div
+            class="listing-container listing-medium bg-white p-3"
+            id="listingContainer"
+          >
+            <!-- JS will populate header and cards -->
+          </div>
+
+          <!-- Loader -->
+          <div
+            id="listingLoader"
+            style="
+              display: none;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            "
+          >
+            <div class="spinner-border text-danger" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+
+          <!-- No Data Message -->
+          <div
+            id="noDataMessage"
+            style="display: none; text-align: center; margin-top: 20px"
+          >
+            <p class="text-muted">No listings found for selected filters.</p>
+          </div>
+        </div>
+
+        <!-- Map Container -->
+        <div
+          class="map-container bg-white p-3 flex-fill"
+          id="mapContainer"
+          style="height: 600px"
+        ></div>
+
+        <!-- Leaflet CSS -->
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet/dist/leaflet.css"
+        />
+      </div>
+    </div>
+    <script>
+      const storedData = localStorage.getItem("directoryData");
+
+      if (!storedData) {
+        alert("No data found. Please search again.");
+        window.location.href = "directory.html";
+      } else {
+        console.log(storedData);
+        window.listingData = JSON.parse(storedData);
+      }
+
+      // References
+      const container = document.getElementById("listingContainer");
+      const loader = document.getElementById("listingLoader");
+      const noDataMessage = document.getElementById("noDataMessage");
+      const resetBtn = document.querySelector(".reset-text");
+
+      let currentCategory = "All";
+      let currentSort = null;
+
+      // Show / hide loader
+      function showLoader(show = true) {
+        if (loader) loader.style.display = show ? "block" : "none";
+      }
+
+      // Open store detail page
+      function openStoreDetail(store) {
+        localStorage.setItem("selectedStore", JSON.stringify(store));
+        window.location.href = "indivisualdir.html";
+      }
+
+      // Render stores
+      function renderStores(stores) {
+        showLoader(false);
+        container.innerHTML = "";
+        noDataMessage.style.display = stores.length === 0 ? "block" : "none";
+
+        if (stores.length === 0) return;
+
+        // ✅ Default state set karo
+        container.classList.add("single-row");
+        container.classList.remove("double-row");
+        // Listing header
+        container.innerHTML = `
+    <div class="listing-header">
+      <div class="listing-header-left">
+        <h5>${listingData.header}</h5>
+        <span>Showing ${stores.length} of ${listingData.totalResults}</span>
+      </div>
+      <div class="view-toggle">
+        <i class="fa fa-square single-view active" title="Single card per row"></i>
+        <i class="fa fa-th-large double-view" title="Two cards per row"></i>
+      </div>
+    </div>
+  `;
+
+        // Render each store
+        stores.forEach((store) => {
+          let image = store.photos?.[0] || "./assets/store-img-ph.png";
+          // Agar URL me "=" ka part ho to remove kardo
+          if (image.includes("=")) {
+            image = image.split("=")[0];
+          }
+          const rating = parseFloat(store.rating || 0).toFixed(1);
+          const fullStars = Math.floor(rating);
+          const halfStar = rating - fullStars >= 0.5 ? 1 : 0;
+          const emptyStars = 5 - fullStars - halfStar;
+
+          let starsHTML = "";
+          for (let i = 0; i < fullStars; i++)
+            starsHTML += '<i class="fa fa-star filled"></i>';
+          if (halfStar)
+            starsHTML += '<i class="fa fa-star-half-alt filled"></i>';
+          for (let i = 0; i < emptyStars; i++)
+            starsHTML += '<i class="fa fa-star"></i>';
+
+          // Create card element
+          const card = document.createElement("div");
+          card.className = "listing-card";
+          card.innerHTML = `
+      <div class="img-wrapper" style="position:relative;">
+        <img src="${image}" alt="${
+            store.name
+          }" onerror="this.onerror=null;this.src='./assets/store-img-ph.png';" />
+        <div class="rating-box">
+          <div class="rating-stars">${starsHTML}</div>
+          <div class="rating-number">${rating}</div>
+        </div>
+      </div>
+      <h5>${store.name}</h5>
+      <p class="category">Total Reviews: ${store.totalRatings}</p>
+     <p class="summary">${
+       store.address ? store.address : "No Address Found"
+     }</p>
+
+      <p class="city">${store.city}, ${store.state}</p>
+      <a 
+      href="${
+        store.website !== "Not available"
+          ? "https://" + store.website
+          : "javascript:void(0);"
+      }" 
+      class="preview" 
+      target="_blank"
+      onclick="${
+        store.website === "Not available"
+          ? `openStoreDetail(${JSON.stringify(store)})`
+          : ""
+      }"
+    >
+      <i class="fa fa-eye"></i> Visit
+    </a>
+
+    `;
+
+          // Add click event for whole card (except website link)
+          card.addEventListener("click", (e) => {
+            if (!e.target.closest(".preview")) {
+              openStoreDetail(store);
+            }
+          });
+
+          container.appendChild(card);
+        });
+
+        // Reattach view toggle
+        const singleBtn = container.querySelector(".single-view");
+
+        const doubleBtn = container.querySelector(".double-view");
+        if (singleBtn && doubleBtn) {
+          singleBtn.addEventListener("click", () => {
+            container.classList.remove("double-row");
+            container.classList.add("single-row");
+            singleBtn.classList.add("active");
+            doubleBtn.classList.remove("active");
+          });
+          doubleBtn.addEventListener("click", () => {
+            container.classList.remove("single-row");
+            container.classList.add("double-row");
+            doubleBtn.classList.add("active");
+            singleBtn.classList.remove("active");
+          });
+        }
+      }
+
+      // Filter + Sort + Map
+      function getFilteredSortedStores() {
+        showLoader(true);
+
+        let filtered = listingData.stores.filter((store) => {
+          return (
+            currentCategory === "All" || store.category === currentCategory
+          );
+        });
+
+        switch (currentSort) {
+          case "mostReviewed":
+            filtered.sort((a, b) => b.totalRatings - a.totalRatings);
+            break;
+          case "a-z":
+            filtered.sort((a, b) => a.name.localeCompare(b.name));
+            break;
+          case "z-a":
+            filtered.sort((a, b) => b.name.localeCompare(a.name));
+            break;
+          case "ratingHigh":
+            filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+            break;
+          case "ratingLow":
+            filtered.sort((a, b) => (a.rating || 0) - (b.rating || 0));
+            break;
+          case "recent":
+            filtered.sort(
+              (a, b) => new Date(b.addedDate) - new Date(a.addedDate)
+            );
+            break;
+        }
+
+        setTimeout(() => {
+          renderStores(filtered);
+          updateMap(filtered);
+        }, 100);
+        return filtered;
+      }
+
+      // Category filter click
+      document.querySelectorAll("#categoryFilters li").forEach((li) => {
+        li.addEventListener("click", () => {
+          currentCategory = li.dataset.category;
+          getFilteredSortedStores();
+        });
+      });
+
+      // Sort buttons
+      document.querySelectorAll("[data-sort]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          currentSort = btn.dataset.sort;
+          getFilteredSortedStores();
+        });
+      });
+
+      // Reset
+      resetBtn.addEventListener("click", () => {
+        currentCategory = "All";
+        currentSort = null;
+        getFilteredSortedStores();
+      });
+
+      /* ===== Map ===== */
+      const map = L.map("mapContainer").setView([43.1566, -77.6088], 12);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map);
+
+      let markersLayer = L.layerGroup().addTo(map);
+      // Initial render
+
+      const initialStores = getFilteredSortedStores();
+      updateMap(initialStores);
+
+      // Fix leaflet sizing issue on reload
+      setTimeout(() => {
+        map.invalidateSize();
+      }, 200);
+
+      const statesLatLng = {
+        Alabama: { lat: 32.806671, lng: -86.79113 },
+        Alaska: { lat: 61.370716, lng: -152.404419 },
+        Arizona: { lat: 33.729759, lng: -111.431221 },
+        Arkansas: { lat: 34.969704, lng: -92.373123 },
+        California: { lat: 36.116203, lng: -119.681564 },
+        Colorado: { lat: 39.059811, lng: -105.311104 },
+        Connecticut: { lat: 41.597782, lng: -72.755371 },
+        Delaware: { lat: 39.318523, lng: -75.507141 },
+        Florida: { lat: 27.766279, lng: -81.686783 },
+        Georgia: { lat: 33.040619, lng: -83.643074 },
+        Hawaii: { lat: 21.094318, lng: -157.498337 },
+        Idaho: { lat: 44.240459, lng: -114.478828 },
+        Illinois: { lat: 40.349457, lng: -88.986137 },
+        Indiana: { lat: 39.849426, lng: -86.258278 },
+        Iowa: { lat: 42.011539, lng: -93.210526 },
+        Kansas: { lat: 38.5266, lng: -96.726486 },
+        Kentucky: { lat: 37.66814, lng: -84.670067 },
+        Louisiana: { lat: 31.169546, lng: -91.867805 },
+        Maine: { lat: 44.693947, lng: -69.381927 },
+        Maryland: { lat: 39.063946, lng: -76.802101 },
+        Massachusetts: { lat: 42.230171, lng: -71.530106 },
+        Michigan: { lat: 43.326618, lng: -84.536095 },
+        Minnesota: { lat: 45.694454, lng: -93.900192 },
+        Mississippi: { lat: 32.741646, lng: -89.678696 },
+        Missouri: { lat: 38.456085, lng: -92.288368 },
+        Montana: { lat: 46.921925, lng: -110.454353 },
+        Nebraska: { lat: 41.12537, lng: -98.268082 },
+        Nevada: { lat: 38.313515, lng: -117.055374 },
+        "New Hampshire": { lat: 43.452492, lng: -71.563896 },
+        "New Jersey": { lat: 40.298904, lng: -74.521011 },
+        "New Mexico": { lat: 34.840515, lng: -106.248482 },
+        "New York": { lat: 42.165726, lng: -74.948051 },
+        "North Carolina": { lat: 35.630066, lng: -79.806419 },
+        "North Dakota": { lat: 47.528912, lng: -99.784012 },
+        Ohio: { lat: 40.388783, lng: -82.764915 },
+        Oklahoma: { lat: 35.565342, lng: -96.928917 },
+        Oregon: { lat: 44.572021, lng: -122.070938 },
+        Pennsylvania: { lat: 40.590752, lng: -77.209755 },
+        "Rhode Island": { lat: 41.680893, lng: -71.51178 },
+        "South Carolina": { lat: 33.856892, lng: -80.945007 },
+        "South Dakota": { lat: 44.299782, lng: -99.438828 },
+        Tennessee: { lat: 35.747845, lng: -86.692345 },
+        Texas: { lat: 31.054487, lng: -97.563461 },
+        Utah: { lat: 40.150032, lng: -111.862434 },
+        Vermont: { lat: 44.045876, lng: -72.710686 },
+        Virginia: { lat: 37.769337, lng: -78.169968 },
+        Washington: { lat: 47.400902, lng: -121.490494 },
+        "West Virginia": { lat: 38.491226, lng: -80.954456 },
+        Wisconsin: { lat: 44.268543, lng: -89.616508 },
+        Wyoming: { lat: 42.755966, lng: -107.30249 },
+      };
+
+      function updateMap(stores) {
+        markersLayer.clearLayers();
+
+        // default USA lat/lng
+        const defaultLat = 37.0902;
+        const defaultLng = -95.7129;
+
+        // localStorage se data uthao
+        const storedData = localStorage.getItem("directoryData");
+        let parsedData = null;
+        let headerState = null;
+
+        if (storedData) {
+          try {
+            parsedData = JSON.parse(storedData);
+            if (parsedData.header) {
+              // header se state find karo
+              for (const state in statesLatLng) {
+                if (
+                  parsedData.header.toLowerCase().includes(state.toLowerCase())
+                ) {
+                  headerState = state;
+                  break;
+                }
+              }
+            }
+          } catch (err) {
+            console.error("❌ Error parsing storedData:", err);
+          }
+        }
+
+        // agar header se state mil gyi
+        if (headerState) {
+          console.log("📍 Centering map on header state:", headerState);
+          map.setView(
+            [statesLatLng[headerState].lat, statesLatLng[headerState].lng],
+            7
+          );
+        } else {
+          console.log("⚠️ No state in header, defaulting to USA");
+          map.setView([defaultLat, defaultLng], 5);
+        }
+
+        // markers add karo
+        if (!stores || stores.length === 0) {
+          console.log("⚠️ No stores found.");
+          return;
+        }
+
+        stores.forEach((store) => {
+          const addMarker = (lat, lng) => {
+            console.log("✅ Adding marker for:", store.name, { lat, lng });
+            const marker = L.marker([lat, lng]);
+            marker.bindPopup(`
+        <b>${store.name}</b><br>
+        ${store.address || "No Address Found"}<br>
+        Rating: ${store.rating} (${store.totalRatings} reviews)<br>
+        <a href="${
+          store.website !== "Not available" ? "https://" + store.website : "#"
+        }" target="_blank">Website</a>
+      `);
+            markersLayer.addLayer(marker);
+          };
+
+          if (store.location) {
+            addMarker(store.location.lat, store.location.lng);
+          } else if (headerState) {
+            addMarker(
+              statesLatLng[headerState].lat,
+              statesLatLng[headerState].lng
+            );
+          } else {
+            addMarker(defaultLat, defaultLng);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
