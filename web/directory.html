@@ -835,7 +835,7 @@
 
             // #b71c1cirect to directorydata.html
             // State + City + Category
-            openDirectoryData({ state: state, city: city, category: category });
+            openDirectoryData({ category: category, state: state, city: city });
           }, delay);
         })
         .catch((err) => {
@@ -996,21 +996,27 @@
     });
 
     // Example call
-    function openDirectoryData({ state, city, category }) {
+    function openDirectoryData({ category, state, city }) {
       const format = (val) =>
         val ? val.trim().toLowerCase().replace(/\s+/g, "-") : "";
 
       let prettyURL = "/stores";
 
-      // Build the path based on available params
+      // Build path in order: category → state → city
       const parts = [
+        category && format(category),
         state && format(state),
         city && format(city),
-        category && format(category),
       ].filter(Boolean);
-      if (parts.length > 0) prettyURL += "/" + parts.join("/");
 
-      // Navigate directly to the pretty URL
+      if (parts.length > 0) {
+        prettyURL += "/" + parts.join("/");
+      }
+
+      // Save for next page (optional)
+      localStorage.setItem("prettyURL", prettyURL);
+
+      // Go to the pretty URL (rewritten to directorydata.html)
       window.location.href = prettyURL;
     }
   </script>
