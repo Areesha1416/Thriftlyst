@@ -953,6 +953,7 @@
 
       // Render stores
       function renderStores(stores) {
+        console.log(stores);
         showLoader(false);
         container.innerHTML = "";
         noDataMessage.style.display = stores.length === 0 ? "block" : "none";
