@@ -978,7 +978,7 @@
 
         // Render each store
         stores.forEach((store) => {
-          let image = store.photos?.[0] || "./assets/store-img-ph.png";
+          let image = store.photos?.[0] || "https://www.thriftlyst.com/assets/store-img-ph.png";
           // Agar URL me "=" ka part ho to remove kardo
           if (image.includes("=")) {
             image = image.split("=")[0];
