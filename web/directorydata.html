@@ -975,10 +975,23 @@
       </div>
     </div>
   `;
+        const fallbackImages = Array.from(
+          { length: 11 },
+          (_, i) =>
+            `https://swag.thriftops.com/assets/images/login-banner/${i + 1}.jpg`
+        );
+
 
         // Render each store
         stores.forEach((store) => {
-          let image = store.photos?.[0] || "https://www.thriftlyst.com/assets/store-img-ph.png";
+          let image = store.photos?.[0];
+
+          if (!image) {
+            const randomIndex = Math.floor(
+              Math.random() * fallbackImages.length
+            );
+            image = fallbackImages[randomIndex];
+          }
           // Agar URL me "=" ka part ho to remove kardo
           if (image.includes("=")) {
             image = image.split("=")[0];
@@ -1001,9 +1014,16 @@
           card.className = "listing-card";
           card.innerHTML = `
       <div class="img-wrapper" style="position:relative;">
-        <img src="${image}" alt="${
-            store.name
-          }" onerror="this.onerror=null;this.src='https://www.thriftlyst.com/assets/store-img-ph.png';" />
+        <img 
+  src="${image}" 
+  alt="${store.name}"
+  onerror="
+    const imgs = Array.from({length: 11}, (_, i) =>
+      'https://swag.thriftops.com/assets/images/login-banner/' + (i+1) + '.jpg'
+    );
+    this.src = imgs[Math.floor(Math.random() * imgs.length)];
+  "
+/>
         <div class="rating-box">
           <div class="rating-stars">${starsHTML}</div>
           <div class="rating-number">${rating}</div>
