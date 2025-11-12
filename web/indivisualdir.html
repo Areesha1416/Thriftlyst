@@ -403,6 +403,42 @@ img {
 </div>
 
 
+<script>
+document.getElementById("storeForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const form = e.target;
+
+  const data = {
+    firstName: form.firstName.value,
+    lastName: form.lastName.value,
+    workEmail: form.workEmail.value,
+    storeName: form.storeName.value,
+    preferredTime: form.preferredTime.value
+  };
+
+  fetch("https://formspree.io/f/xyzlyaoz", {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.ok) {
+      document.getElementById("formMessage").innerHTML = "<span style='color:green;'>Request sent successfully!</span>";
+      form.reset();
+    } else {
+      document.getElementById("formMessage").innerHTML = "<span style='color:red;'>Failed to send. Try again.</span>";
+    }
+  })
+  .catch(err => {
+    document.getElementById("formMessage").innerHTML = "<span style='color:red;'>Failed to send. Try again.</span>";
+    console.error(err);
+  });
+});
+</script>
 
   
 </div>
