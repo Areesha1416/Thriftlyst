@@ -342,41 +342,42 @@ img {
 
   <div class="contact-form mt-4 text-center">
     <h5 class="mb-3">Claim Your Store</h5>
-
     <!-- Claim Store Form -->
-<div class="claim-store-form mt-4 p-3 bg-white rounded shadow-sm">
-  <h5 class="mb-3 text-center">Claim Your Store</h5>
-  <p class="small text-muted text-center mb-3">
-    Fill out the form and we'll get back to you shortly.
-  </p>
+<div class="claim-store-form mt-4 p-4 bg-white rounded-3 shadow-sm border">  
   <form id="storeForm">
     <div class="row g-3">
       <div class="col-md-6">
-        <label for="firstName" class="form-label">First Name*</label>
-        <input type="text" class="form-control" id="firstName" required>
+        <label for="firstName" class="form-label fw-semibold">First Name*</label>
+        <input type="text" class="form-control form-control-lg rounded-pill" id="firstName" placeholder="John" required>
       </div>
       <div class="col-md-6">
-        <label for="lastName" class="form-label">Last Name*</label>
-        <input type="text" class="form-control" id="lastName" required>
+        <label for="lastName" class="form-label fw-semibold">Last Name*</label>
+        <input type="text" class="form-control form-control-lg rounded-pill" id="lastName" placeholder="Doe" required>
       </div>
     </div>
+
     <div class="mb-3 mt-3">
-      <label for="workEmail" class="form-label">Work Email*</label>
-      <input type="email" class="form-control" id="workEmail" required>
+      <label for="workEmail" class="form-label fw-semibold">Work Email*</label>
+      <input type="email" class="form-control form-control-lg rounded-pill" id="workEmail" placeholder="you@example.com" required>
     </div>
+
     <div class="mb-3">
-      <label for="storeName" class="form-label">Thrift Store Name*</label>
-      <input type="text" class="form-control" id="storeName" required>
+      <label for="storeName" class="form-label fw-semibold">Thrift Store Name*</label>
+      <input type="text" class="form-control form-control-lg rounded-pill" id="storeName" placeholder="Thrift Hub" required>
     </div>
+
     <div class="mb-3">
-      <label for="preferredTime" class="form-label">Preferred Time to Connect*</label>
-      <input type="text" class="form-control" id="preferredTime" placeholder="e.g., Mon 3-5pm" required>
+      <label for="preferredTime" class="form-label fw-semibold">Preferred Time to Connect*</label>
+      <input type="text" class="form-control form-control-lg rounded-pill" id="preferredTime" placeholder="Mon 3-5pm" required>
     </div>
-    <button type="submit" class="btn btn-danger w-100 mt-2">Submit</button>
+
+    <button type="submit" class="btn btn-danger w-100 py-2 mt-2 fw-bold shadow-sm">
+      <i class="fa fa-paper-plane me-2"></i> Submit
+    </button>
   </form>
 </div>
 
-    
+       
     <p class="small text-muted">
       Schedule a call with us to claim your store and learn more about ThriftOps.
     </p>
