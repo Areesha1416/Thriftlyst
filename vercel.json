@@ -9,6 +9,7 @@
     { "source": "/directoryData", "destination": "/directorydata.html" },
     { "source": "/", "destination": "/directory.html" },
     { "source": "/stores/:path*", "destination": "/directorydata.html" },
-    { "source": "/store/:path*", "destination": "/indivisualdir.html" }
+    { "source": "/store/:path*", "destination": "/indivisualdir.html" },
+    { "source": "/llms", "destination": "/llms.txt" }
   ]
 }
