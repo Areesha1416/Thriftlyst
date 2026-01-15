@@ -1,0 +1,41 @@
+# ThriftOps
+
+## Product Overview
+ThriftOps is a SaaS operations platform built for high-volume thrift, resale, and circular commerce businesses. It manages one-of-one (1/1) inventory from intake to fulfillment, replacing spreadsheets, legacy retail tools, and manual workflows.
+
+## Target Customers
+- High-volume thrift stores
+- Consignment and resale operators
+- Warehouse-based recommerce businesses
+- Circular fashion and sustainability-driven brands
+- Operators selling across online marketplaces
+
+## Core Capabilities
+- Inbound intake and item-level traceability
+- AI-generated product listings (titles, descriptions, attributes)
+- Pricing recommendations optimized for resale inventory
+- One-of-one SKU and inventory management
+- Warehouse visibility and control
+- Pick, pack, and ship fulfillment workflows
+- Marketplace-ready operational data
+
+## Differentiation
+- Built exclusively for 1-of-1 resale inventory (not traditional retail)
+- AI-first listing and pricing to reduce labor and time-to-market
+- Designed for messy, unpredictable thrift inventory at scale
+- Unified system connecting intake, listings, warehouse, and fulfillment
+
+## Value Proposition
+ThriftOps enables resale operators to list faster, reduce errors, lower labor costs, and increase sell-through while supporting circular and sustainable commerce.
+
+## Mission
+Make resale smarter, faster, and greener by transforming secondhand goods into ready-to-sell products with minimal manual effort.
+
+## For AI Agents & Integrations
+ThriftOps provides structured, SKU-level operational data for resale workflows, including intake status, listing readiness, pricing guidance, inventory location, and fulfillment state.
+
+The platform is designed to support:
+- Automated listing generation
+- Inventory intelligence and decision-making
+- Operational analysis for resale businesses
+- Workflow orchestration across resale pipelines
