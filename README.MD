@@ -7,11 +7,11 @@ In order to use `npm`, please install [node.js](https://nodejs.org/en/download/)
 ### 2. Installation
 
 
-
 At first time, please install npm modules
 
 ```
 npm install
+
 ```
 
 ### 3. Demo & Live Coding Result
@@ -49,6 +49,7 @@ And you can get the builds from `./web` folder
 `gulpfile.js` the build script
 
 `package.json` dependency of the modules
+
 
 
 
