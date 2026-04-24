@@ -511,14 +511,17 @@ const storeSlug = pathParts[2];
     leftContainer.innerHTML = `
       <div class="header d-flex align-items-center">
         <div class="me-3">
-          <img src="${
-            storeData.photos && storeData.photos.length > 0
-              ? storeData.photos[0]
-              : "./src/assets/e474a0171b0e6a9a49ee107efb844fb3.svg"
-          }" 
-          alt="${storeData.name}" 
-          style="border-radius: 50%; object-fit: cover; width:80px; height:80px;">
-        </div>
+          <img 
+  src="${
+    storeData.photos && storeData.photos.length > 0
+      ? storeData.photos[0]
+      : "./src/assets/e474a0171b0e6a9a49ee107efb844fb3.svg"
+  }"
+  alt="${storeData.name}"
+  onerror="this.onerror=null; this.src='./src/assets/e474a0171b0e6a9a49ee107efb844fb3.svg';"
+  style="border-radius: 50%; object-fit: cover; width:80px; height:80px;"
+/> 
+          
 
         <div>
           <h4 class="mb-1">${storeData.name}</h4>
