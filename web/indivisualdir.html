@@ -464,8 +464,8 @@ document.getElementById("storeForm").addEventListener("submit", function(e){
 
   // 🔹 Parse the store slug from the URL (e.g. /store/thrift-hub)
   const pathParts = window.location.pathname.split("/").filter(Boolean);
-  const storeSlug = pathParts[1]; // e.g. "thrift-hub"
-
+const stateSlug = pathParts[1];
+const storeSlug = pathParts[2];
   const leftContainer = document.getElementById("leftContainer");
   let storeData = JSON.parse(localStorage.getItem("selectedStore") || "null");
 
