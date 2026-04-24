@@ -942,14 +942,16 @@
 
       // Open store detail page
       function openStoreDetail(store) {
-        const slug = store.name.trim().toLowerCase().replace(/\s+/g, "-");
+  const slug = store.name.trim().toLowerCase().replace(/\s+/g, "-");
 
-        // Save for the next page (optional)
-        localStorage.setItem("selectedStore", JSON.stringify(store));
+  const stateSlug = store.state
+    ? store.state.trim().toLowerCase().replace(/\s+/g, "-")
+    : "unknown";
 
-        // Go to the pretty URL
-        window.location.href = `/store/${slug}`;
-      }
+  window.localStorage.setItem("selectedStore", JSON.stringify(store));
+
+  window.location.href = `/store/${stateSlug}/${slug}`;
+}
 
       // Render stores
       function renderStores(stores) {
