@@ -468,7 +468,7 @@ document.getElementById("storeForm").addEventListener("submit", function(e){
 const stateSlug = pathParts[1];
 const storeSlug = pathParts[2];
 
-fetch(`${API_BASE_URL}/getStoreBySlug.php`, {
+fetch(`${API_BASE_URL}/getstoredetails.php`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
