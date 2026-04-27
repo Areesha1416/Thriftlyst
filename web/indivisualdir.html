@@ -464,46 +464,32 @@ document.getElementById("storeForm").addEventListener("submit", function(e){
 
   // 🔹 Parse the store slug from the URL (e.g. /store/thrift-hub)
   const pathParts = window.location.pathname.split("/").filter(Boolean);
+
 const stateSlug = pathParts[1];
 const storeSlug = pathParts[2];
-  const leftContainer = document.getElementById("leftContainer");
-  let storeData = JSON.parse(localStorage.getItem("selectedStore") || "null");
 
-  // ✅ Check if the local store matches the current slug
-  if (
-    storeData &&
-    storeData.name.trim().toLowerCase().replace(/\s+/g, "-") !== storeSlug
-  ) {
-    storeData = null;
-  }
-
-  // ✅ If no matching store in localStorage, fetch it
-  if (!storeData && storeSlug) {
-    fetch(`${API_BASE_URL}/getAllStores.php`) // Adjust endpoint if different
-      .then((res) => res.json())
-      .then((stores) => {
-        const match = stores.find(
-          (s) =>
-            s.name &&
-            s.name.trim().toLowerCase().replace(/\s+/g, "-") === storeSlug
-        );
-        if (match) {
-          localStorage.setItem("selectedStore", JSON.stringify(match));
-          renderStore(match);
-        } else {
-          leftContainer.innerHTML = "<p>No matching store found.</p>";
-        }
-      })
-      .catch((err) => {
-        console.error("Error fetching store:", err);
-        leftContainer.innerHTML =
-          "<p>Failed to load store data. Please try again later.</p>";
-      });
-  } else if (storeData) {
-    renderStore(storeData);
-  } else {
-    leftContainer.innerHTML = "<p>No data found. Go back to listings.</p>";
-  }
+fetch(`${API_BASE_URL}/getStoreBySlug.php`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    state: stateSlug,
+    name: storeSlug,
+  }),
+})
+  .then((res) => res.json())
+  .then((data) => {
+    if (data.error) {
+      leftContainer.innerHTML = "<p>Store not found.</p>";
+    } else {
+      renderStore(data);
+    }
+  })
+  .catch((err) => {
+    console.error(err);
+    leftContainer.innerHTML = "<p>Error loading store.</p>";
+  });
 
   // 🔹 Render the store info dynamically
   function renderStore(storeData) {
