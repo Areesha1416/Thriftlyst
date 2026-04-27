@@ -466,9 +466,11 @@ document.getElementById("storeForm").addEventListener("submit", function(e){
   const pathParts = window.location.pathname.split("/").filter(Boolean);
 
 const stateSlug = pathParts[1];
-const storeSlug = pathParts[2];
+const storeSlug = pathParts[2]
+  .replace(/-/g, " ")      // convert dash to space
+  .replace(/\.com$/, "");  // remove .com if exists
 
-fetch(`${API_BASE_URL}/getstoredetails.php`, {
+fetch(`${API_BASE_URL}/get_store_details.php`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
