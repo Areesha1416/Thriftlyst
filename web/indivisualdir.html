@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://www.thriftlyst.com/css/footer.css" />
     <link rel="stylesheet" href="https://www.thriftlyst.com/css/directory.css" />
     <!-- Bootstrap CSS -->
-    <link
+    <linkhttps://github.com/Areesha1416/Thriftlyst/edit/main/web/indivisualdir.html
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;700&display=swap"
       rel="stylesheet"
     />
@@ -465,7 +465,8 @@ document.getElementById("storeForm").addEventListener("submit", function(e){
   // 🔹 Parse the store slug from the URL (e.g. /store/thrift-hub)
   const pathParts = window.location.pathname.split("/").filter(Boolean);
 
-const stateSlug = pathParts[1];
+      const stateSlug = pathParts[1]
+  .replace(/-/g, " ")      // convert dash to space
 const storeSlug = pathParts[2]
   .replace(/-/g, " ")      // convert dash to space
   .replace(/\.com$/, "");  // remove .com if exists
