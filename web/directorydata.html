@@ -981,7 +981,7 @@
         const fallbackImages = Array.from(
           { length: 11 },
           (_, i) =>
-            `https://swag.thriftops.com/assets/images/login-banner/${i + 1}.jpg`
+            `https://erp.thriftops.com/assets/images/login-banner/${i + 1}.jpg`
         );
 
 
@@ -1022,7 +1022,7 @@
   alt="${store.name}"
   onerror="
     const imgs = Array.from({length: 11}, (_, i) =>
-      'https://swag.thriftops.com/assets/images/login-banner/' + (i+1) + '.jpg'
+      'https://erp.thriftops.com/assets/images/login-banner/' + (i+1) + '.jpg'
     );
     this.src = imgs[Math.floor(Math.random() * imgs.length)];
   "
